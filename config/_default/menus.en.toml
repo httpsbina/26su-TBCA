@@ -12,7 +12,7 @@
 
 [[main]]
   name = "Team Posts"
-  pageRef = "team_posts" 
+  pageRef = "team_posts"
   weight = 10
 
 [[main]]
@@ -20,21 +20,27 @@
   weight = 20
 
 [[main]]
-  name = "Eric Gerber"
+  name = "Alyssa Haidar"
   parent = "Team Members"
-  pageRef = "EricGerber"
+  pageRef = "AlyssaHaidar"
   weight = 20
 
 [[main]]
-  name = "Mark Fontenot"
+  name = "Bina"
   parent = "Team Members"
-  pageRef = "MarkFontenot"
+  pageRef = "Bina"
   weight = 20
 
 [[main]]
-  name = "A New Guy"
+  name = "Charles Chapman"
   parent = "Team Members"
-  pageRef = "ANewGuy"
+  pageRef = "CharlesChapman"
+  weight = 20
+
+[[main]]
+  name = "Tyler Gladu"
+  parent = "Team Members"
+  pageRef = "TylerGladu"
   weight = 20
 
 #[[main]]
