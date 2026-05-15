@@ -1,3 +1,0 @@
-# Bina
-
-\[Insert bio here]
