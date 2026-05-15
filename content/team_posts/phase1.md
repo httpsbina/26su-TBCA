@@ -6,25 +6,32 @@ description: "Our Idea"
 slug: "phase1post"
 tags: ["project", "Setup"]
 authors:
-  - "eric_gerber"
-  - "mark_fontenot"
+  - "alyssa_haidar"
+  - "bina"
+  - "charles_chapman"
+  - "tyler_gladu"
 showAuthorsBadges: false
 ---
 
-# Introduction
+# Topic Introduction
 
-Hi, We are Team Leuven! **This is bold text**, and this is _emphasized_ text.
+Education is a large portion of European countries' annual budgets. With the increase in membership in the EU, now more than ever we need to know where money is going. Many people complain about educational quality blah blah blah.
 
-- here
-- are
-- some
-- bullet
-- points
+# Our Solution
 
-# This is a Level 1 heading
+Our solution to this issue is a ML Model to offer insights into education spending for different stakeholders. It will be able to predict optimal budget allocation both to and within the education sector, as well as track where spending goes and how effective it is.
 
-Can you see this?
+# User Personas
 
-## This is a Level 2 heading
+## Politician
+- Determining how much money to allocate to a sector
 
-Wait, can you hear me now?
+## Sector Leader
+- Where to allocate money
+
+## Citizen
+- Where is my money going and how effective is it
+
+# Candidate Data Sources
+
+[General government expenditure by function \(COFOG)](https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en)
