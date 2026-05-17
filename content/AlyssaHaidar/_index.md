@@ -1,3 +1,3 @@
 # Alyssa Haidar
 
-\[Insert Bio Here]
+I'm a computer science and economics major at Northeastern University.
