@@ -54,3 +54,7 @@ KU Leuven just completed a large expansion and will be receiving 2000 more stude
 
 # Candidate Data Sources
 
+[European Tertiary Education Register (ETER)](https://zenodo.org/records/7871040?preview_file=ETER_fullDump_27042023.csv)
+- Downloadable CSV with hundreds of datapoints about every European tertiary education institution including enrollment, funding, graduation rates, etc.
+- Could use data to train ML model for predictions based on funding, enrollment, grad rate, and other metrics.
+- I (Charlie) was able to import the CSV file into a mysql database using Docker and DataGrip for exploration.
