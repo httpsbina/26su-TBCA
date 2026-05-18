@@ -22,4 +22,3 @@ My favorite part about Belgium so far is the food. I've tried everything from wa
 
 
 
-# Trips and Guest Speakers
