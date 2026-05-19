@@ -1,6 +1,12 @@
 # Tyler Gladu
 
-##### Combined Major in Computer Science and Business Administration - Concentration: Financial Technologies
+## Current Education
+Combined Major in Computer Science and Business Administration - Concentration: Financial Technologies
+
+## Hobbies
+Guitar, Soccer, Photography, and Content Creation
+
+
 
 ## Current Favorite Song
 
