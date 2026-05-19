@@ -1,4 +1,4 @@
-# Tyler Gladu
+# Tyler Gladu <a href="https://www.linkedin.com/in/tyler-gladu-bb7783239/" target="_blank" rel="noopener noreferrer">{{< icon "linkedin" >}}</a>
 
 ## Current Education
 Combined Major in Computer Science and Business Administration - Concentration: Financial Technologies
