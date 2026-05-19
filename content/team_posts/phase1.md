@@ -1,6 +1,6 @@
 ---
 title: "Project - Phase I"
-date: 2024-05-14
+date: 2026-05-19
 draft: false
 description: "Our Idea"
 slug: "phase1post"
@@ -14,15 +14,21 @@ showAuthorsBadges: false
 ---
 
 # Topic Introduction - Alyssa
-
+In our project we decided to focus on the education sector of EU member states. We look at the funds allocated to universities across the EU and the academic performance within each of them. The goal is to help both governments and students better understand and navigate the education system, because right now it is hard to know where money is going and whether it is actually making a difference for students.
 
 # Our Solution - Alyssa
-
+We are building a platform that serves two main groups: Education Ministers and students. On the government side, ministers will be able to see how much funding is going to each university, whether it is being used well, and where it might need to be redirected based on factors like enrollment, graduation rates, and campus safety. A predictive model will also help recommend the best way to distribute budgets to get the strongest outcomes. On the student side, users can answer questions about their academic performance and goals to get personalized university recommendations. If a student already knows what field they want to go into, like medicine, they can access practice exams, input their scores, and get a plan showing which schools they have the best shot at getting into.
 
 # User Personas
 
-## Student - Tyler
-- Where to go to school questionnaire
+## Maria Lopez
+
+- **AGE:** 18
+- **Occupation:** High School Senior
+- **Nationality:** Spanish
+
+Maria Lopez is a senior high school student in Madrid preparing to choose a university. She wants to study engineering but in overwhelmed by the number of options across Europe and doesn't know how to narrow her options down. She cares about program strength, proximity to home, and campus culture, but doesn't want to spend hours researching schools individually. An application that asks her clarifying questions would save her a significant amount of time and stress.
+
 
 ## Cher Lemieux - Bina
 
@@ -80,9 +86,9 @@ KU Leuven just completed a large expansion and will be receiving 2000 more stude
 - Could use data to train ML model for predictions based on funding, enrollment, grad rate, and other metrics.
 - I (Charlie) was able to import the CSV file into a mysql database using Docker and DataGrip for exploration.
 
-# Bina's Data Sources
+## Bina's Data Sources
 
-## User Story 1: Workforce Mismatch
+### User Story 1: Workforce Mismatch
 *Identify supply/demand gaps between student majors and labor market needs by region*
 
 **Primary Datasets:**
@@ -101,7 +107,7 @@ https://www.cedefop.europa.eu/en/tools/skills-intelligence
 **My Plan:**
 Cross-reference student major interests from the questionnaire against actual regional enrollment trends and future job demand forecasts. Flag regions where students are choosing majors that won't have jobs in 5-10 years.
 
-## User Story 2: Funding Allocation Strategy
+### User Story 2: Funding Allocation Strategy
 *Identify which universities are underfunded but producing strong outcomes*
 
 **Primary Datasets:**
@@ -120,7 +126,7 @@ Data access: https://www.umultirank.org/about/u-multirank/data-access/
 **How to Use:**
 Train ML model on ETER data (funding as input, graduation/research output as target). Identify institutions that are producing good results on low budgets. Use Eurostat finance data to cross-check funding levels. U-Multirank provides additional performance signals beyond graduation rates.
 
-## User Story 3: Brain Drain
+### User Story 3: Brain Drain
 *Track which regions are losing students and understand push factors*
 
 **Primary Datasets:**
@@ -135,7 +141,7 @@ https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Learning_mobi
 **How to Use:**
 Visualize outflow of students from each EU country and region. Combine with data from User Story 1 (labor market forecasts) to understand if drain is because of lack of jobs in home country or preference for studying abroad. Filter by field of study to see if certain majors have higher outflow rates.
 
-## User Story 4: Credential Recognition Barriers
+### User Story 4: Credential Recognition Barriers
 *Whether degree recognition concerns are blocking student mobility*
 
 **Primary Datasets:**
