@@ -21,8 +21,14 @@ We are building a platform that serves two main groups: Education Ministers and 
 
 # User Personas
 
-## Student - Tyler
-- Where to go to school questionnaire
+## Maria Lopez
+
+- **AGE:** 18
+- **Occupation:** High School Senior
+- **Nationality:** Spanish
+
+Maria Lopez is a senior high school student in Madrid preparing to choose a university. She wants to study engineering but in overwhelmed by the number of options across Europe and doesn't know how to narrow her options down. She cares about program strength, proximity to home, and campus culture, but doesn't want to spend hours researching schools individually. An application that asks her clarifying questions would save her a significant amount of time and stress.
+
 
 ## College Counselor - Bina
 - School-wide data
@@ -58,3 +64,6 @@ KU Leuven just completed a large expansion and will be receiving 2000 more stude
 - Downloadable CSV with hundreds of datapoints about every European tertiary education institution including enrollment, funding, graduation rates, etc.
 - Could use data to train ML model for predictions based on funding, enrollment, grad rate, and other metrics.
 - I (Charlie) was able to import the CSV file into a mysql database using Docker and DataGrip for exploration.
+
+
+
