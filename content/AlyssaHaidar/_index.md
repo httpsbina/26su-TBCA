@@ -1,4 +1,4 @@
-# Alyssa Haidar
+# Alyssa Haidar <a href="https://www.linkedin.com/in/alyssa-haidar-21662a246/" target="_blank" rel="noopener noreferrer">{{< icon "linkedin" >}}</a>
 
 I am a upcoming Junior at Northeastern University with a major in Computer Science and Economics.
 

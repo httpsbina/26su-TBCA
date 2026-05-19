@@ -1,4 +1,5 @@
-# Charles Chapman
+# Charles Chapman <a href="https://www.linkedin.com/in/charlestchapman" target="_blank" rel="noopener noreferrer">{{< icon "linkedin" >}}</a>
+
 
 Cybersecurity Major & Cyber Operations Concentration @ Northeastern University
 
