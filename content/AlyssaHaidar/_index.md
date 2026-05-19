@@ -1,6 +1,6 @@
 # Alyssa Haidar
 
-\[Insert Bio Here]
+I am a upcoming Junior at Northeastern University with a major in Computer Science and Economics.
 
 ## My playlist
 
