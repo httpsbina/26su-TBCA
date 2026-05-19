@@ -101,8 +101,6 @@ https://www.cedefop.europa.eu/en/tools/skills-intelligence
 **My Plan:**
 Cross-reference student major interests from the questionnaire against actual regional enrollment trends and future job demand forecasts. Flag regions where students are choosing majors that won't have jobs in 5-10 years.
 
----
-
 ## User Story 2: Funding Allocation Strategy
 *Identify which universities are underfunded but producing strong outcomes*
 
@@ -122,8 +120,6 @@ Data access: https://www.umultirank.org/about/u-multirank/data-access/
 **How to Use:**
 Train ML model on ETER data (funding as input, graduation/research output as target). Identify institutions that are producing good results on low budgets. Use Eurostat finance data to cross-check funding levels. U-Multirank provides additional performance signals beyond graduation rates.
 
----
-
 ## User Story 3: Brain Drain
 *Track which regions are losing students and understand push factors*
 
@@ -138,8 +134,6 @@ https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Learning_mobi
 
 **How to Use:**
 Visualize outflow of students from each EU country and region. Combine with data from User Story 1 (labor market forecasts) to understand if drain is because of lack of jobs in home country or preference for studying abroad. Filter by field of study to see if certain majors have higher outflow rates.
-
----
 
 ## User Story 4: Credential Recognition Barriers
 *Whether degree recognition concerns are blocking student mobility*
