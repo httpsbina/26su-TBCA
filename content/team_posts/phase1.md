@@ -14,10 +14,10 @@ showAuthorsBadges: false
 ---
 
 # Topic Introduction - Alyssa
-
+In our project we decided to focus on the education sector of EU member states. We look at the funds allocated to universities across the EU and the academic performance within each of them. The goal is to help both governments and students better understand and navigate the education system, because right now it is hard to know where money is going and whether it is actually making a difference for students.
 
 # Our Solution - Alyssa
-
+We are building a platform that serves two main groups: Education Ministers and students. On the government side, ministers will be able to see how much funding is going to each university, whether it is being used well, and where it might need to be redirected based on factors like enrollment, graduation rates, and campus safety. A predictive model will also help recommend the best way to distribute budgets to get the strongest outcomes. On the student side, users can answer questions about their academic performance and goals to get personalized university recommendations. If a student already knows what field they want to go into, like medicine, they can access practice exams, input their scores, and get a plan showing which schools they have the best shot at getting into.
 
 # User Personas
 
