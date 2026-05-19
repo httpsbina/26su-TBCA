@@ -209,7 +209,6 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
 </head>
 <body>
 
-<div class="spiral" aria-hidden="true">
   <div class="coil"></div><div class="coil"></div><div class="coil"></div>
   <div class="coil"></div><div class="coil"></div><div class="coil"></div>
   <div class="coil"></div><div class="coil"></div><div class="coil"></div>
@@ -227,7 +226,7 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
     <a onclick="go('gallery',this)">gallery</a>
     <a onclick="go('diary',this)">diary</a>
     <a onclick="go('about',this)">about</a>
-    <a href="/" style="margin-left:auto;">back</a>
+    <a href="/26su-TBCA/bina/" onclick="window.top.location.href=this.href; return false;" style="margin-left:auto;">back</a><div class="spiral" aria-hidden="true">
   </div>
 </nav>
 
