@@ -1,5 +1,5 @@
 ---
-title: "First Week in Leuven"
+title: "Week 1: Classes, Food, and Phase 1"
 date: 2026-05-18
 draft: false
 description: "Experiences so far in Leuven, Belgium"
@@ -20,5 +20,5 @@ My favorite part about Belgium so far is the food. I've tried everything from wa
 
 # Phase 1 Contributions
 
-
+For Phase 1, I wrote the student user persona and five user stories. I also built my author bio and wrote my first individual blog post about my experiences in Leuven so far. Lastly, I researched and wrote the description for the Eurostat API as one of our candidate data sources for the project. 
 

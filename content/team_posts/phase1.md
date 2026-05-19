@@ -27,18 +27,18 @@ We are building a platform that serves two main groups: Education Ministers and 
 - **Occupation:** High School Senior
 - **Nationality:** Spanish
 
-Maria Lopez is a senior high school student in Madrid preparing to choose a university. She wants to study engineering but in overwhelmed by the number of options across Europe and doesn't know how to narrow her options down. She cares about program strength, proximity to home, and campus culture, but doesn't want to spend hours researching schools individually. An application that asks her clarifying questions would save her a significant amount of time and stress.
+Maria Lopez is a senior high school student in Madrid preparing to choose a university. She wants to study engineering but is overwhelmed by the number of options across Europe and doesn't know how to narrow her options down. She cares about program strength, proximity to home, and campus culture, but doesn't want to spend hours researching schools individually. An application that asks her clarifying questions would save her a significant amount of time and stress.
 
 ### User Story 1
 
 As Maria, I want to input my academic interests and preferences, so that I can receive a condensed list of universities without having to do heavy research on individual schools
 
 ### User Story 2
-As Maria, I want to compare university off of several factors such as program strength, cost of living, and distance from home, so that I can make an informed decision that balances my personal and academic desires.
+As Maria, I want to compare universities across several factors such as program strength, cost of living, and distance from home, so that I can make an informed decision that balances my personal and academic desires.
 
 ### User Story 3
 
-As Maria, I want to see how different universities rank for my specific major rather than just overall rankings, so that I can avoid choosing a highly ranked university with a week program in my field of study.
+As Maria, I want to see how different universities rank for my specific major rather than just overall rankings, so that I can avoid choosing a highly ranked university with a weak program in my field of study.
 
 ### User Story 4
 
@@ -46,7 +46,7 @@ As Maria, I want to filter universities by language, so that I can determine whi
 
 ### User Story 5
 
-As Maria, I want to understand the opinions on other students with similar preferences, so that I can feel more confident in my final choice.
+As Maria, I want to understand the opinions of other students with similar preferences, so that I can feel more confident in my final choice.
 
 ## College Counselor - Bina
 - School-wide data
@@ -57,7 +57,7 @@ As Maria, I want to understand the opinions on other students with similar prefe
 - **Occupation:** Flemish Minister for Education, Justice, and Work
 - **Nationality:** Flemish
 
-Zuhal Demir is the current sitting Flemish Minister for Educatoin, Justice, and Work. She is directly responsible for allocating funding to Flemish universities and measuring performance. In a state where Universities are almost entirely publicly funded, she has a great amount of power and influence over education in Flanders.
+Zuhal Demir is the current sitting Flemish Minister for Education, Justice, and Work. She is directly responsible for allocating funding to Flemish universities and measuring performance. In a state where Universities are almost entirely publicly funded, she has a great amount of power and influence over education in Flanders.
 
 ### User Story 1
 
@@ -89,7 +89,6 @@ KU Leuven just completed a large expansion and will be receiving 2000 more stude
 - In-depth information on many education sectors including enrollment numbers, graduation rates, student mobility across borders, and education expenditures.
 - API provides queries filterable by country, time period, and subject area.
 - Returns data in JSON, CSV, and XML formats.
-- Provides relevant data to our Government Official persona's and can supplement our Student persona and give a broader national context
 
 
 
