@@ -8,21 +8,14 @@ I am an upcoming third year Computer Science and Economics Major.
 
 ## Photo Gallery
 {{< gallery >}}
-  <img src = "public/alyssahaidar/gallery/20260511_181749.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260511_193341.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260511_193347.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260511_193440.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260512_112421.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260513_161058.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260513_165401.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260513_171613.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260513_182540.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260513_182632.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260516_140919.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260516_144709.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260516_144714.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260517_142623.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260517_144509.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260517_145717.jpg" class="grid-w33" />
-  <img src = "public/alyssahaidar/gallery/20260517_150553.jpg" class="grid-w33" />
+  <img src = "gallery/20260511_181749.jpeg" class="grid-w33" />
+  <img src = "gallery/20260511_193347.jpeg" class="grid-w33" />
+  <img src = "gallery/20260512_112421.jpeg" class="grid-w33" />
+  <img src = "gallery/20260512_123956.jpeg" class="grid-w33" />
+  <img src = "gallery/20260513_161056.jpeg" class="grid-w33" />
+  <img src = "gallery/20260513_170524.jpeg" class="grid-w33" />
+  <img src = "gallery/20260517_145502.jpeg" class="grid-w33" />
+  <img src = "gallery/20260517_145643.jpeg" class="grid-w33" />
+  <img src = "gallery/20260517_165342.jpeg" class="grid-w33" />
+  <img src = "gallery/20260517_181802.jpeg" class="grid-w33" />
 {{< /gallery >}}
