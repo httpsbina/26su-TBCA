@@ -13,10 +13,10 @@ authors:
 showAuthorsBadges: false
 ---
 
-# Topic Introduction - Alyssa
+# Topic Introduction
 In our project we decided to focus on the education sector of EU member states. We look at the funds allocated to universities across the EU and the academic performance within each of them. The goal is to help both governments and students better understand and navigate the education system, because right now it is hard to know where money is going and whether it is actually making a difference for students.
 
-# Our Solution - Alyssa
+# Our Solution
 We are building a platform that serves two main groups: Education Ministers and students. On the government side, ministers will be able to see how much funding is going to each university, whether it is being used well, and where it might need to be redirected based on factors like enrollment, graduation rates, and campus safety. A predictive model will also help recommend the best way to distribute budgets to get the strongest outcomes. On the student side, users can answer questions about their academic performance and goals to get personalized university recommendations. If a student already knows what field they want to go into, like medicine, they can access practice exams, input their scores, and get a plan showing which schools they have the best shot at getting into.
 
 # User Personas
@@ -48,7 +48,7 @@ As Maria, I want to filter universities by language, so that I can determine whi
 
 As Maria, I want to understand the opinions of other students with similar preferences, so that I can feel more confident in my final choice.
 
-## Cher Lemieux - Bina
+## Cher Lemieux
 
 Cher Lemieux is the sitting Executive Vice-President for Social Rights, Skills, Quality Jobs, and Preparedness under the European Commission. She is responsible for ensuring that European workers have access to quality employment, that education systems across member states are producing skilled graduates, and that the EU workforce remains competitive and prepared for future economic shifts. As student-to-workforce pipelines become increasingly data-driven, tools that connect secondary students to the right university programs are directly relevant to her mandate; better university matching means stronger graduate outcomes, which feeds directly into EU labor market health.
 
@@ -111,7 +111,7 @@ KU Leuven just completed a large expansion and will be receiving 2000 more stude
 - API provides queries filterable by country, time period, and subject area.
 - Returns data in JSON, CSV, and XML formats.
 
-## Bina's Data Sources
+## Cher Lemieux Data Sources
 
 ### User Story 1: Workforce Mismatch
 *Identify supply/demand gaps between student majors and labor market needs by region*
