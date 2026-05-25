@@ -13,6 +13,17 @@ authors:
 showAuthorsBadges: false
 ---
 
+# User Persona Updates
+
+## Student
+Since phase 1, we have narrowly defined the features available to the student persona. They will be able to take a survey which will suggest them universities that match their preferences. They will also be able to create pros/cons lists for each university which are saved to the database. Lastly, they will be able to favorite universities which is stored in the database. This database will be used to inform the models used by the labor statistician and budget manager personas.
+
+## Labor Statistician
+Since phase 1, we have specified the labor statistician user persona. We have narrowed the persona's features to include stats and predictions based on student users' specified majors and their implications on the work-force. We have also discussed having a chat-board platform for labor statisticians to discuss statistics and predictions with each other. We have not included this in our database design yet as we are still planning it out.
+
+## Budget Manager
+Since phase 1, we have more clearly defined the budget manager user persona. This persona's features will include a budget simulation tool to experiment with and explore predicted outcomes of different budget allocations between universities. Budget managers will be able to create plans and save them to the database for future reference. They will also be able to explore statistics related to students' favorited universities and how that may affect future student populations.
+
 # ER Diagrams and Relational Models
 
 ## User Personal - Student
