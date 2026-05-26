@@ -13,6 +13,17 @@ authors:
 showAuthorsBadges: false
 ---
 
+# User Persona Updates
+
+## Student
+Since phase 1, we have narrowly defined the features available to the student persona. They will be able to take a survey which will suggest them universities that match their preferences. They will also be able to create pros/cons lists for each university which are saved to the database. Lastly, they will be able to favorite universities which is stored in the database. This database will be used to inform the models used by the labor statistician and budget manager personas.
+
+## Labor Statistician
+Since phase 1, we have specified the labor statistician user persona. We have narrowed the persona's features to include stats and predictions based on student users' specified majors and their implications on the work-force. We have also discussed having a chat-board platform for labor statisticians to discuss statistics and predictions with each other. We have not included this in our database design yet as we are still planning it out.
+
+## Budget Manager
+Since phase 1, we have more clearly defined the budget manager user persona. This persona's features will include a budget simulation tool to experiment with and explore predicted outcomes of different budget allocations between universities. Budget managers will be able to create plans and save them to the database for future reference. They will also be able to explore statistics related to students' favorited universities and how that may affect future student populations.
+
 # ER Diagrams and Relational Models
 
 ## User Personal - Student
@@ -126,8 +137,14 @@ CREATE TABLE budget_plan_university (
 );
 ```
 
+### Description of Datatypes
+
+For the datatypes of values in our database, we chose to use varchars for all text and integers for IDs. For short fields such as names and emails, we set a limit of 100 characters. For medium length text such as address and location, we set a limit of 225. For long text such as the pros and cons fields, we set a limit of 10000 characters. Our IDs will be integers that iterate for each value. For created_at and updated_at, we use datetimes to track when fields are edited. Lastly, for decimal values such as GPA and graduation rate, we use floats rather than decimals as they do not need to be exactly precise.
+
 # Wireframes
+
 ### Description
+
 We used "Good Notes" to illustrate our wireframes for our application. This allowed us to quickly and efficiently outline page layouts and create key UI components for each user persona. We made three seperate portal designs, one for the Student, Labor Statistician, and Budget Manager. Each portal contains multiple interactive pages that provide the user a clean workflow. The sketches include elements such as data tables and charts to give a visual reference for how the application should look and behave once implemented.
 ![Alt Text](Wireframes-TBCA-Final-1.jpg)
 ![Alt Text](Wireframes-TBCA-Final-2.jpg)
