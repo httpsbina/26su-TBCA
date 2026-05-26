@@ -125,3 +125,7 @@ CREATE TABLE budget_plan_university (
     FOREIGN KEY (plan_id) REFERENCES budget_plan(id)
 );
 ```
+
+### Description of Datatypes
+
+For the datatypes of values in our database, we chose to use varchars for all text and integers for IDs. For short fields such as names and emails, we set a limit of 100 characters. For medium length text such as address and location, we set a limit of 225. For long text such as the pros and cons fields, we set a limit of 10000 characters. Our IDs will be integers that iterate for each value. For created_at and updated_at, we use datetimes to track when fields are edited. Lastly, for decimal values such as GPA and graduation rate, we use floats rather than decimals as they do not need to be exactly precise.
