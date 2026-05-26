@@ -125,3 +125,16 @@ CREATE TABLE budget_plan_university (
     FOREIGN KEY (plan_id) REFERENCES budget_plan(id)
 );
 ```
+
+# Wireframes
+### Description
+We used "Good Notes" to illustrate our wireframes for our application. This allowed us to quickly and efficiently outline page layouts and create key UI components for each user persona. We made three seperate portal designs, one for the Student, Labor Statistician, and Budget Manager. Each portal contains multiple interactive pages that provide the user a clean workflow. The sketches include elements such as data tables and charts to give a visual reference for how the application should look and behave once implemented.
+![Alt Text](Wireframes-TBCA-Final-1.jpg)
+![Alt Text](Wireframes-TBCA-Final-2.jpg)
+![Alt Text](Wireframes-TBCA-Final-3.jpg)
+![Alt Text](Wireframes-TBCA-Final-4.jpg)
+![Alt Text](Wireframes-TBCA-Final-5.jpg)
+![Alt Text](Wireframes-TBCA-Final-6.jpg)
+![Alt Text](Wireframes-TBCA-Final-7.jpg)
+![Alt Text](Wireframes-TBCA-Final-8.jpg)
+![Alt Text](Wireframes-TBCA-Final-9.jpg)
