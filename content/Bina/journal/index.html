@@ -21,8 +21,12 @@ showDate: false
 html{scroll-behavior:smooth;}
 body{background:var(--bg);background-image:repeating-linear-gradient(transparent,transparent 27px,var(--line) 27px,var(--line) 28px);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;padding:44px 0 80px;}
 
+/* SPIRAL */
+.spiral{position:fixed;left:0;top:0;bottom:0;width:36px;background:#d8cebc;border-right:1.5px solid var(--tan);z-index:300;display:flex;flex-direction:column;align-items:center;padding-top:20px;gap:14px;overflow:hidden;}
+.coil{width:20px;height:18px;border:2.5px solid #a89070;border-radius:50%;background:var(--bg);flex-shrink:0;}
+
 /* TOPBAR */
-.topbar{position:sticky;top:0;z-index:200;background:rgba(240,235,224,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--beige);height:44px;display:flex;align-items:center;padding:0 26px;gap:0;}
+.topbar{position:fixed;top:0;z-index:200;background:rgba(240,235,224,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--beige);height:44px;display:flex;align-items:center;padding:0 26px;gap:0;}
 .tb-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;font-weight:400;color:var(--ink);flex:1;letter-spacing:0.3px;}
 .tb-nav{display:flex;gap:22px;}
 .tb-nav a{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--ink2);text-decoration:none;opacity:0.5;transition:opacity 0.15s;cursor:pointer;}
@@ -30,7 +34,7 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
 .tb-nav a.on{border-bottom:1.5px solid var(--rose);}
 
 /* HERO */
-.hero{padding:14px 26px 16px;border-bottom:1px solid var(--beige);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;}
+.hero{margin-top:0;padding:14px 26px 16px;}
 .hero-h{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,5vw,62px);line-height:1;letter-spacing:-0.5px;}
 .hero-h em{font-style:italic;color:var(--rose);}
 .hero-sub{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink3);margin-top:6px;}
@@ -204,16 +208,6 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
 </head>
 <body>
 
-  <div class="coil"></div><div class="coil"></div><div class="coil"></div>
-  <div class="coil"></div><div class="coil"></div><div class="coil"></div>
-  <div class="coil"></div><div class="coil"></div><div class="coil"></div>
-  <div class="coil"></div><div class="coil"></div><div class="coil"></div>
-  <div class="coil"></div><div class="coil"></div><div class="coil"></div>
-  <div class="coil"></div><div class="coil"></div><div class="coil"></div>
-  <div class="coil"></div><div class="coil"></div><div class="coil"></div>
-  <div class="coil"></div><div class="coil"></div><div class="coil"></div>
-</div>
-
 <nav class="topbar">
   <div class="tb-title">bina's journal</div>
   <div class="tb-nav">
@@ -221,7 +215,8 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
     <a onclick="go('gallery',this)">gallery</a>
     <a onclick="go('diary',this)">diary</a>
     <a onclick="go('about',this)">about</a>
-    <a href="https://httpsbina.github.io/26su-TBCA/" style="margin-left:auto;">back</a>  </div>
+    <a href="/" style="margin-left:auto;">back</a>
+  </div>
 </nav>
 
 <div class="hero">
@@ -595,23 +590,8 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
     </div>
   </div>
 
-<!-- ENTRY 3 -->
-<div class="card" style="margin-bottom:16px;" data-entry-id="3">
-  <div class="entry" style="border-bottom:none;">
-    <div class="entry-date" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">leuven, may 27, 2026</div>
-    <div class="entry-title" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">i built a labor market prediction model and somehow it works!! #datascientist</div>
-    <div class="entry-content visible">
-      <p class="entry-body" contenteditable="true" style="outline:none;cursor:text;min-height:80px;" spellcheck="false">ok so for phase II of our project i was in charge of the data science side for the labor statistician persona. which sounds very fancy and important and i am choosing to lean into that energy.<br><br>basically i pulled two real datasets from the EU's statistics database (Eurostat) using an API, one for employment by sector across all 27 EU countries, one for university graduates by field of study. the fun(!) part was that the two datasets are completely different. employment uses these short codes like "J" for ICT, graduates use full names like "Information and communication technologies". so i had to build a crosswalk dictionary to translate one into the other before i could merge them. it was annoying and then it worked and i felt very smart. #dataScience #girlgenius<br><br>then i built two linear regression models. the first one predicts employment levels and gets R² = 1.0 which SOUNDS amazing until you realize it's basically just memorizing last year's number and calling it a prediction. very sneaky, booooo! my professor caught it immediately but said it was ok (thx dr. geber). so i built a second model that predicts year-over-year employment CHANGE instead, which actually forces the model to use the graduate data. R² = 0.258, which is more realistic and it means graduates and time explain about 26% of why employment changes. the other 74% is recessions and policy and stuff we don't have. #modelInterpretation<br><br>the hardest part was honestly just getting the data to cooperate. every time i thought i had the columns figured out they'd be named something slightly different. <br><br>but the charts came out really pretty and the germany actual vs predicted plots look almost identical which is the most satisfying thing i've seen all week. #worthit</p>
-    </div>
-  </div>
-  <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--tan);display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-    <button onclick="heartEntry(this)" class="diary-btn heart-btn">
-      <span class="heart-icon">♡</span>&thinsp;<span class="heart-count">0</span>
-    </button>
-    <button onclick="blockEntry(this)" class="diary-btn">block</button>
-    <button onclick="openComments(this)" class="diary-btn">comments</button>
-  </div>
 </div>
+
 
 <!-- ══ ABOUT ══ -->
 <div class="panel" id="p-about">
@@ -833,6 +813,25 @@ function loadPhoto(input){
     if(inner&&inner!==img)inner.style.display='none';
   };
   r.readAsDataURL(input.files[0]);
+}
+
+/* ── DIARY PASSWORD ── */
+function checkPw(input){
+  const gate=input.closest('.pw-gate');
+  const entry=input.closest('.entry');
+  const content=entry.querySelector('.entry-content');
+  const msg=gate.querySelector('.pw-msg');
+  if(input.value.toLowerCase()==='meow'){
+    content.classList.add('visible');
+    gate.style.display='none';
+    entry.querySelector('.pw-locked').style.display='none';
+  } else {
+    msg.style.display='inline';
+    msg.textContent='you aren\'t bina... are you?';
+    input.value='';
+    input.style.borderColor='var(--rose)';
+    setTimeout(()=>{input.style.borderColor='';},1500);
+  }
 }
 
 /* ── TODO ── */
