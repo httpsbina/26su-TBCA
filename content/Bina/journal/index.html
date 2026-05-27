@@ -597,6 +597,23 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
 
 </div>
 
+<!-- ENTRY 3 -->
+<div class="card" style="margin-bottom:16px;" data-entry-id="3">
+  <div class="entry" style="border-bottom:none;">
+    <div class="entry-date" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">leuven, may 27, 2026</div>
+    <div class="entry-title" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">i built a labor market prediction model and somehow it works!! #datascientist</div>
+    <div class="entry-content visible">
+      <p class="entry-body" contenteditable="true" style="outline:none;cursor:text;min-height:80px;" spellcheck="false">ok so for phase II of our project i was in charge of the data science side for the labor statistician persona. which sounds very fancy and important and i am choosing to lean into that energy.<br><br>basically i pulled two real datasets from the EU's statistics database (Eurostat) using an API, one for employment by sector across all 27 EU countries, one for university graduates by field of study. the fun(!) part was that the two datasets are completely different. employment uses these short codes like "J" for ICT, graduates use full names like "Information and communication technologies". so i had to build a crosswalk dictionary to translate one into the other before i could merge them. it was annoying and then it worked and i felt very smart. #dataScience #girlgenius<br><br>then i built two linear regression models. the first one predicts employment levels and gets R² = 1.0 which SOUNDS amazing until you realize it's basically just memorizing last year's number and calling it a prediction. very sneaky, booooo! my professor caught it immediately but said it was ok (thx dr. geber). so i built a second model that predicts year-over-year employment CHANGE instead, which actually forces the model to use the graduate data. R² = 0.258, which is more realistic and it means graduates and time explain about 26% of why employment changes. the other 74% is recessions and policy and stuff we don't have. #modelInterpretation<br><br>the hardest part was honestly just getting the data to cooperate. every time i thought i had the columns figured out they'd be named something slightly different. <br><br>but the charts came out really pretty and the germany actual vs predicted plots look almost identical which is the most satisfying thing i've seen all week. #worthit</p>
+    </div>
+  </div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--tan);display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+    <button onclick="heartEntry(this)" class="diary-btn heart-btn">
+      <span class="heart-icon">♡</span>&thinsp;<span class="heart-count">0</span>
+    </button>
+    <button onclick="blockEntry(this)" class="diary-btn">block</button>
+    <button onclick="openComments(this)" class="diary-btn">comments</button>
+  </div>
+</div>
 
 <!-- ══ ABOUT ══ -->
 <div class="panel" id="p-about">
@@ -818,25 +835,6 @@ function loadPhoto(input){
     if(inner&&inner!==img)inner.style.display='none';
   };
   r.readAsDataURL(input.files[0]);
-}
-
-/* ── DIARY PASSWORD ── */
-function checkPw(input){
-  const gate=input.closest('.pw-gate');
-  const entry=input.closest('.entry');
-  const content=entry.querySelector('.entry-content');
-  const msg=gate.querySelector('.pw-msg');
-  if(input.value.toLowerCase()==='meow'){
-    content.classList.add('visible');
-    gate.style.display='none';
-    entry.querySelector('.pw-locked').style.display='none';
-  } else {
-    msg.style.display='inline';
-    msg.textContent='you aren\'t bina... are you?';
-    input.value='';
-    input.style.borderColor='var(--rose)';
-    setTimeout(()=>{input.style.borderColor='';},1500);
-  }
 }
 
 /* ── TODO ── */
