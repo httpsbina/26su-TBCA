@@ -233,53 +233,46 @@ The two datasets were merged on the university English name column (`BAS.INSTNAM
 
 ## Visualizations
 
-![EU27 Employment by Sector Over Time](1.png)
-Public Admin, Education & Health is the largest and fastest-growing sector. ICT shows consistent growth across the entire period.
+![Test 1 Input](phase2-rankings-test1-input.png)
+Test 1 student inputs: budget of €2,000, doctoral degree, and small campus preference.
 
-![Graduates vs Employment by Sector](2.png)
-Each panel shows the relationship between graduate counts and employment for one sector with an OLS trend line. Manufacturing and Public Health show strong positive relationships. ICT and Finance flatter, suggesting those sectors rely more on international hiring than domestic graduate supply.
+![Test 1 Output](phase2-rankings-test1-output.png)
+German universities such as TU Bergakademie Freiberg and Ilmenau University of Technology are top matches. The lowest ranked universities at the bottom receive negative cosine scores, indicating they are the least similar to the student's preferences.
 
-![EU27 Graduates by Field of Study Over Time](newplot3.png)
-Business and law is the most common field. ICT graduates are growing but from a low base, consistent with the EU-wide tech skills shortage.
+![Test 2 Input](phase2-rankings-test2-input.png)
+Test 2 student inputs: budget of €5,000, bachelor's degree, and large campus preference.
 
-![Employment Percent Change by Sector](output.png)
-Every sector grew 2012–2023. ICT leads at ~1,560%, followed by Manufacturing at ~1,400%.
+![Test 2 Output](phase2-rankings-test2-output.png)
+Test 2 output: switching to a bachelor's degree and maximum campus size shifts the ranking toward large well-known universities such as University of Copenhagen, TU Munich, and KU Leuven.
 
-## ML Models
+![Test 3 Input](phase2-rankings-test3-input.png)
+Test 3 student inputs: budget of €5,000, master's degree, and large campus preference.
 
-Both models use a temporal split; train on 2012–2020, test on 2021–2023 to simulate accurate forecasting.
+![Test 3 Output](phase2-rankings-test3-output.png)
+Test 3 output: a master's degree preference with a medium-large campus produces a similar top ranking to test 2 but with slightly different match scores which confirms the model responds to degree level inputs.
 
-**Model 1: Predicting Employment Level** (features: `time`, `graduates`)
+## ML Model
 
-![Model 1 Predicted vs Actual](preview-6.webp)
+**Model: University Recommendation Engine** using an unsupervised k-NN neighborhood model.
 
-R² = 1.0, but this is misleading, employment is so stable year to year that the model essentially memorizes sector sizes from training. It systematically underpredicts large sectors.
+**Data Preprocessing**
+- ETER dataset loaded from Excel, semicolon separated columns split and cleaned in Python, transformed to csv
+- Missing values (`m`) replaced with `NA`
+- Merged with Hipo API data on English university name to add website links
+- Features standardized using `StandardScaler`
 
-**Model 2: Predicting Employment Change** (features: `time`, `graduates`, `employment_lag1`)
-
-![Model 2 Predicted vs Actual Change](6.webp)
-
-R² = 0.258. Predicting year-over-year change instead of the raw level forces the model to actually use graduate data to explain growth. Including last year's employment lets it predict both positive and negative changes.
-
-![Residual Plot](preview-3.webp)
-
-Residuals scatter randomly around zero, no systematic pattern, which is what we want.
-
-**Germany: Actual vs. Predicted**
-
-![Germany Actual Employment](newplot.png)
-![Germany Predicted Employment](newplot2.png)
-
-The predicted chart closely shows actual employment by sector, confirming the model tracks real patterns well at the country level.
+**Model Implementation**
+- Student inputs (budget, degree level, campus size 1-10) converted into a vector in the same feature space as the university matrix
+- Campus size slider mapped to actual staff numbers using dataset min/max
+- Cosine similarity computed between student vector and every university vector
+- Universities ranked by similarity score displayed as a match number out of 100
 
 ## Model Discussion
 
-We built two linear regression models using employment and graduate data pulled from Eurostat across all 27 EU member states from 2012–2023, trained on 2012–2020 and tested on 2021–2023.
+The university ranking model is an unsupervised k-NN recommendation engine, meaning there is no correct answer to predict and therefore no R2 or MSE to report. Instead of a train/test split, we validated the model by running three test cases with different student profiles and confirming the rankings responded meaningfully to each change in input.
 
-Model 1 predicts raw employment level using graduates and year. R² = 1.0, but only because employment barely changes year to year, the model is memorizing sector sizes, not learning from graduate data. Model 2 predicts employment change using graduates, year, and last year's employment. R² = 0.258, meaning our features explain about 26% of employment growth.
+In test 1, a student with a low budget of 2000 euros, doctoral degree preference, and small campus preference (2/10) received a ranking dominated by smaller specialized German institutions such as TU Bergakademie Freiberg and Ilmenau University of Technology. In test 2, switching to a bachelor's degree and maximum campus size (10/10) shifted the ranking toward large well-known universities such as University of Copenhagen, TU Munich, and KU Leuven. In test 3, a master's degree preference with a medium-large campus (7/10) produced a similar top ranking to test 2 but with slightly adjusted match scores, confirming the model is sensitive to degree level as a differentiating feature.
 
-Neither model is perfect. Employment is pushed by many things not in our data: recessions, policy, automation, immigration, COVID-19. What these models show is that graduate supply has a measurable relationship with sector employment growth across the EU, which is directly useful for the labor statistician persona when monitoring whether the graduate pipeline is keeping up with sector demand.
+These results show the model behaves as expected. Universities that are most similar to the student's feature vector consistently rank at the top, while the least similar universities receive negative cosine scores at the bottom of the full ranked list.
 
-For our visualizations, we chose line charts to show employment and graduate trends over time since they make it easy to compare how multiple sectors move relative to each other across years. Scatter plots with OLS trend lines were used to  answer our big question: does graduate supply relate to employment in that sector, since the trend line makes the direction and strength of the relationship visible. The horizontal bar chart was chosen for the percent change comparison because it makes it easy to rank sectors.
-
-For Phase III, the main tasks remaining are connecting the model to a REST API so the labor statistician persona can query predictions interactively, editing Model 2 with additional features to push the R² beyond 0.258, and deploying both models in a Docker container. The biggest difficulty in Phase II was that the two Eurostat datasets use completely different classification systems; NACE codes for employment and ISCED field names for graduates which required building a manual crosswalk and  merging before any modeling could happen.
+For Phase III, the main tasks remaining are connecting the model to a REST API so the student persona can query it interactively through the website, adding more features such as program offerings and geographic distance from home once full API access is granted, and deploying the model in a Docker container. The biggest difficulty in Phase II was the encoding issue with the ETER Excel file which caused special characters in European university names to display incorrectly. This will be fully resolved when the real API data is integrated in the next phase.
