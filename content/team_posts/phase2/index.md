@@ -18,7 +18,7 @@ showAuthorsBadges: false
 ## Student
 Since phase 1, we have narrowly defined the features available to the student persona. They will be able to take a survey which will suggest them universities that match their preferences. They will also be able to create pros/cons lists for each university which are saved to the database. Lastly, they will be able to favorite universities which is stored in the database. This database will be used to inform the models used by the labor statistician and budget manager personas.
 
-## Labor Statistician
+## Cher Lemieux, Labor Statistician in the European Union
 Since phase 1, we have specified the labor statistician user persona. We have narrowed the persona's features to include stats and predictions based on student users' specified majors and their implications on the work-force. We have also discussed having a chat-board platform for labor statisticians to discuss statistics and predictions with each other. We have not included this in our database design yet as we are still planning it out.
 
 ## Budget Manager
@@ -136,3 +136,63 @@ CREATE TABLE budget_plan_university (
     FOREIGN KEY (plan_id) REFERENCES budget_plan(id)
 );
 ```
+
+# Data Science: Labor Statistician Persona
+
+## Data Collection
+
+Two datasets were pulled directly from the Eurostat API using the same `get_json` function from class:
+
+- **Employment by sector** (`nama_10_a64_e`): thousands of employed persons by NACE economic sector, country, and year across all 27 EU member states from 2010–2023
+- **Graduates by field of study** (`educ_uoe_grad02`): number of tertiary graduates by ISCED field of education, country, and year
+
+The two datasets use different classification systems, employment uses short NACE codes like `"J"` for ICT, graduates use full field names like `"Information and communication technologies"` so a crosswalk dictionary was built to map each education field to its primary labor market destination sector before merging.
+
+## Visualizations
+
+![EU27 Employment by Sector Over Time](1.png)
+Public Admin, Education & Health is the largest and fastest-growing sector. ICT shows consistent growth across the entire period.
+
+![Graduates vs Employment by Sector](2.png)
+Each panel shows the relationship between graduate counts and employment for one sector with an OLS trend line. Manufacturing and Public Health show strong positive relationships. ICT and Finance flatter, suggesting those sectors rely more on international hiring than domestic graduate supply.
+
+![EU27 Graduates by Field of Study Over Time](newplot3.png)
+Business and law is the most common field. ICT graduates are growing but from a low base, consistent with the EU-wide tech skills shortage.
+
+![Employment Percent Change by Sector](output.png)
+Every sector grew 2012–2023. ICT leads at ~1,560%, followed by Manufacturing at ~1,400%.
+
+## ML Models
+
+Both models use a temporal split; train on 2012–2020, test on 2021–2023 to simulate accurate forecasting.
+
+**Model 1: Predicting Employment Level** (features: `time`, `graduates`)
+
+![Model 1 Predicted vs Actual](preview-6.webp)
+
+R² = 1.0, but this is misleading, employment is so stable year to year that the model essentially memorizes sector sizes from training. It systematically underpredicts large sectors.
+
+**Model 2: Predicting Employment Change** (features: `time`, `graduates`, `employment_lag1`)
+
+![Model 2 Predicted vs Actual Change](6.webp)
+
+R² = 0.258. Predicting year-over-year change instead of the raw level forces the model to actually use graduate data to explain growth. Including last year's employment lets it predict both positive and negative changes.
+
+![Residual Plot](preview-3.webp)
+
+Residuals scatter randomly around zero, no systematic pattern, which is what we want.
+
+**Germany: Actual vs. Predicted**
+
+![Germany Actual Employment](newplot.png)
+![Germany Predicted Employment](newplot2.png)
+
+The predicted chart closely shows actual employment by sector, confirming the model tracks real patterns well at the country level.
+
+## Model Discussion
+
+We built two linear regression models using employment and graduate data pulled from Eurostat across all 27 EU member states from 2012–2023, trained on 2012–2020 and tested on 2021–2023.
+
+Model 1 predicts raw employment level using graduates and year. R² = 1.0, but only because employment barely changes year to year, the model is memorizing sector sizes, not learning from graduate data. Model 2 predicts employment change using graduates, year, and last year's employment. R² = 0.258, meaning our features explain about 26% of employment growth.
+
+Neither model is perfect. Employment is pushed by many things not in our data: recessions, policy, automation, immigration, COVID-19. What these models show is that graduate supply has a measurable relationship with sector employment growth across the EU, which is directly useful for the labor statistician persona when monitoring whether the graduate pipeline is keeping up with sector demand.
