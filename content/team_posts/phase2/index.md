@@ -219,3 +219,60 @@ Neither model is perfect. Employment is pushed by many things not in our data: r
 For our visualizations, we chose line charts to show employment and graduate trends over time since they make it easy to compare how multiple sectors move relative to each other across years. Scatter plots with OLS trend lines were used to  answer our big question: does graduate supply relate to employment in that sector, since the trend line makes the direction and strength of the relationship visible. The horizontal bar chart was chosen for the percent change comparison because it makes it easy to rank sectors.
 
 For Phase III, the main tasks remaining are connecting the model to a REST API so the labor statistician persona can query predictions interactively, editing Model 2 with additional features to push the R² beyond 0.258, and deploying both models in a Docker container. The biggest difficulty in Phase II was that the two Eurostat datasets use completely different classification systems; NACE codes for employment and ISCED field names for graduates which required building a manual crosswalk and  merging before any modeling could happen.
+
+# Data Science: Student Persona
+
+## Data Collection
+
+There were two datasets that were pulled from two sources. The first from ETER database where I downloaded the data as an excel file and transformed it to a csv format. The second was an open source api of which the data I saved as a csv.
+
+- **Hipo University Domains List** (`eu_universities`): universities worldwide which i filtered to save in a csv of only the EU country universities. Includes the university names, domains, and web pages.
+- **ETER Data** (`University_budget_stats or University_bs`): university data on student fees highest degree offered, city, staff amount.
+
+The two datasets were merged on the university English name column (`BAS.INSTNAMEENGL` in ETER, `name` in Hipo) to merge the ETER feature data with the Hipo website links into a single dataframe.
+
+## Visualizations
+
+![Test 1 Input](phase2-rankings-test1-input.png)
+Test 1 student inputs: budget of €2,000, doctoral degree, and small campus preference.
+
+![Test 1 Output](phase2-rankings-test1-output.png)
+German universities such as TU Bergakademie Freiberg and Ilmenau University of Technology are top matches. The lowest ranked universities at the bottom receive negative cosine scores, indicating they are the least similar to the student's preferences.
+
+![Test 2 Input](phase2-rankings-test2-input.png)
+Test 2 student inputs: budget of €5,000, bachelor's degree, and large campus preference.
+
+![Test 2 Output](phase2-rankings-test2-output.png)
+Test 2 output: switching to a bachelor's degree and maximum campus size shifts the ranking toward large well-known universities such as University of Copenhagen, TU Munich, and KU Leuven.
+
+![Test 3 Input](phase2-rankings-test3-input.png)
+Test 3 student inputs: budget of €5,000, master's degree, and large campus preference.
+
+![Test 3 Output](phase2-rankings-test3-output.png)
+Test 3 output: a master's degree preference with a medium-large campus produces a similar top ranking to test 2 but with slightly different match scores which confirms the model responds to degree level inputs.
+
+## ML Model
+
+**Model: University Recommendation Engine** using an unsupervised k-NN neighborhood model.
+
+**Data Preprocessing**
+- ETER dataset loaded from Excel, semicolon separated columns split and cleaned in Python, transformed to csv
+- Missing values (`m`) replaced with `NA`
+- Merged with Hipo API data on English university name to add website links
+- Features standardized using `StandardScaler`
+
+**Model Implementation**
+- Student inputs (budget, degree level, campus size 1-10) converted into a vector in the same feature space as the university matrix
+- Campus size slider mapped to actual staff numbers using dataset min/max
+- Cosine similarity computed between student vector and every university vector
+- Universities ranked by similarity score displayed as a match number out of 100
+
+## Model Discussion
+
+The university ranking model is an unsupervised k-NN recommendation engine, meaning there is no correct answer to predict and therefore no R2 or MSE to report. Instead of a train/test split, we validated the model by running three test cases with different student profiles and confirming the rankings responded meaningfully to each change in input.
+
+In test 1, a student with a low budget of 2000 euros, doctoral degree preference, and small campus preference (2/10) received a ranking dominated by smaller specialized German institutions such as TU Bergakademie Freiberg and Ilmenau University of Technology. In test 2, switching to a bachelor's degree and maximum campus size (10/10) shifted the ranking toward large well-known universities such as University of Copenhagen, TU Munich, and KU Leuven. In test 3, a master's degree preference with a medium-large campus (7/10) produced a similar top ranking to test 2 but with slightly adjusted match scores, confirming the model is sensitive to degree level as a differentiating feature.
+
+These results show the model behaves as expected. Universities that are most similar to the student's feature vector consistently rank at the top, while the least similar universities receive negative cosine scores at the bottom of the full ranked list.
+
+For Phase III, the main tasks remaining are connecting the model to a REST API so the student persona can query it interactively through the website, adding more features such as program offerings and geographic distance from home once full API access is granted, and deploying the model in a Docker container. The biggest difficulty in Phase II was the encoding issue with the ETER Excel file which caused special characters in European university names to display incorrectly. This will be fully resolved when the real API data is integrated in the next phase.
