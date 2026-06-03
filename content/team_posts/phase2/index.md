@@ -71,6 +71,12 @@ CREATE TABLE student (
     major       VARCHAR(100)
 );
 
+CREATE TABLE labor_statistician (
+    id          INTEGER PRIMARY KEY,
+    name        VARCHAR(100) NOT NULL,
+    email       VARCHAR(100) NOT NULL,
+);
+
 CREATE TABLE university (
     id          INTEGER PRIMARY KEY,
     name        VARCHAR(100) NOT NULL,
