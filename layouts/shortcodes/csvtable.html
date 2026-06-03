@@ -1,0 +1,18 @@
+{{ $file := .Get "file" }}
+{{ $sep := .Get "sep" | default "," }}
+{{ $res := .Page.Resources.Get $file }}
+{{ with $res }}
+  {{ $data := .Content | transform.Unmarshal (dict "delimiter" $sep) }}
+  {{ if gt (len $data) 0 }}
+  <table class="routes-matrix">
+    <thead>
+      <tr>{{ range index $data 0 }}<th>{{ . }}</th>{{ end }}</tr>
+    </thead>
+    <tbody>
+      {{ range after 1 $data }}
+        <tr>{{ range . }}<td>{{ . }}</td>{{ end }}</tr>
+      {{ end }}
+    </tbody>
+  </table>
+  {{ else }}<p><em>routes.csv is empty.</em></p>{{ end }}
+{{ else }}<p><em>Could not find {{ $file }} as a page resource.</em></p>{{ end }}
