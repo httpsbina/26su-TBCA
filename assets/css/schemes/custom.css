@@ -35,3 +35,63 @@
   --color-secondary-800: 154,  52,  18;
   --color-secondary-900: 124,  45,  18;
 }
+
+/* Widen the article column so wide tables (REST API matrix, etc.)
+   aren't squeezed into the default ~65ch prose width.
+   The doubled class beats Tailwind's .max-w-prose specificity. */
+#single_header.max-w-prose,
+.article-content.max-w-prose,
+article footer.max-w-prose {
+  max-width: 60rem;
+}
+
+/* --- Table of contents styling --- */
+#TableOfContents {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+#TableOfContents a {
+  display: block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.375rem;
+  border-left: 2px solid transparent;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+#TableOfContents a:hover {
+  color: rgb(var(--color-primary-700));
+  background-color: rgb(var(--color-primary-100));
+}
+
+/* Active section (requires smartTOC = true) */
+#TableOfContents a.active {
+  font-weight: 600;
+  color: rgb(var(--color-primary-800));
+  border-left-color: rgb(var(--color-primary-500));
+  background-color: rgb(var(--color-primary-50));
+}
+
+.dark #TableOfContents a:hover {
+  color: rgb(var(--color-primary-300));
+  background-color: rgba(var(--color-primary-400), 0.15);
+}
+
+.dark #TableOfContents a.active {
+  color: rgb(var(--color-primary-300));
+  background-color: rgba(var(--color-primary-400), 0.18);
+}
+
+.routes-matrix {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.routes-matrix th,
+.routes-matrix td {
+  border: 1px solid #ccc;   /* lines on all four sides of every cell */
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+

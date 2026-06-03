@@ -1,0 +1,20 @@
+Command,GET,POST,PUT,DELETE
+/universities,All personas want to be able to see a list of all available universities,N/A,N/A,N/A
+/universities/{university_id},Student wants to get specifics about a certain university,N/A,N/A,N/A
+/students,Program must get a list of all students,Student wants to create a new account,N/A,N/A
+/recommended_universities/{student_id},Student wants to see a list of universities based on their preferences,N/A,N/A,N/A
+/recommended_universities/{student_id}/{university_id},N/A,Program wants to recommend new universities to students,N/A,Students want to delete recommendations
+/students/{student_id},Student wants to get their account,N/A,Student wants to edit their account,Student wants to be able to delete their account
+/pros_cons/{student_id}/{university_id},Student wants to review their pros and cons about a certain university,"Student wants to make a pros and cons list, speaking about different universities",Students wants to modifiy pros and cons list about universities,Students wants to delete posted pros and cons notes about universities
+/favorites/{student_id},Student wants to see all universities they have favorited,N/A,N/A,N/A
+/favorites/{student_id}/{university_id},Student wants to see which universities they have favorited,Student wants to favorite new universities,N/A,Student wants to unfavorite universities
+/surveys/{student_id},Student wants to view their survey answers,Student posts information about their preferences for university,Student modifies prefered information but their preferences for university,Student deletes preferences about individual universities
+/labor_statisticians,Program must get a list of all labor statisticians,Labor statistician wants to be able to create new accounts,N/A,N/A
+/labor_statisticians/{labor_statistician_id},Labor statistician wants to get their account,N/A,Labor statistician wants to edit their account,Labor statistician wants to delete their account
+/stats/total_students,Labor statistician wants to be able to view total students,N/A,N/A,N/A
+/stats/universities,Labor statistician wants to be able to view stats about universities,N/A,N/A,N/A
+/stats/majors,Labor statistician wants to see the distribution of majors,N/A,N/A,N/A
+/stats/universities?university_id={university_id},Labor statistician wants to view stats about a specific university,N/A,N/A,N/A
+/stats/budget/{university_id},Labor statistician wants to see the individual budget information about a specific university,N/A,N/A,N/A
+/budget_plans?budget_manager_id={budget_manager_id},Budget manager wants to view all plans,N/A,N/A,N/A
+/budget_plans/{plan_id},Budget manager wants to view a specific plan of theirs,Budget manager wants to create a new plan,Budget manager wants to update existing plans,Budget manager wants to delete existing plans
