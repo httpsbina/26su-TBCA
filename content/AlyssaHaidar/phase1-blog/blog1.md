@@ -1,5 +1,5 @@
 ---
-title: "Alyssa Haidar"
+title: "Blog Post #1"
 date: 2026-05-17
 draft: false
 description: "Individual Deliverables"

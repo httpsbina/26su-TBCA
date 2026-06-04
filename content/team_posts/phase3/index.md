@@ -74,3 +74,30 @@ def toggle_favorite(student_id, university_id):
         current_app.logger.error(f"POST favorite toggle failed: {e}")
         return error_response("Could not toggle favorite", 400)
 ```
+## ML Model - University Ranking Unsupervised Model
+My main contribution this phase was taking the university ranking model from the Jupyter Notebook and converting it into a Python class that works with our Flask backend.
+
+The model uses cosine similarity to rank EU universities based on three features from the student survey:
+- **Student budget** - their tuition preference
+- **Degree level** - Bachelors (1), Masters (2), Doctorate (3)
+- **Campus size** - Small (1), Medium (2), Large (3)
+
+These features were chosen because they directly map to what a student is looking for and we had matching data in our dataset. Staff FTE is used as a proxy for campus size since it correlates with how big the institution is. The model standardizes all features using StandardScaler, then computes cosine similarity between the student input vector and each university vector. Universities are ranked by score and returned as a dictionary keyed by rank.
+
+### Changes from Phase 2 to Phase 3
+- Converted the Jupyter Notebook into a `university_ranking_model` class in `modelrec.py`
+- Updated the campus size formula from a 1-10 scale to 1-3 to match the updated survey question (Small/Medium/Large)
+- Converted the cleaned model dataset (`model_df.csv`) into a SQL file (`02_modelrec.sql`) and loaded it into the `modelrec` table
+
+### Routes
+I wrote two routes in `modelrec_routes.py`:
+- `GET /modelrec/predict/<budget>/<degree>/<size>` - returns top 10 matches
+- `GET /modelrec/predict/all/<budget>/<degree>/<size>` - returns all ranked universities
+
+### Frontend Pages (In Progress)
+I am currently working on the student facing pages:
+- `02_Student_Data.py` - the student portal showing personalized recommendations and favorites, pulling from the ML model route
+- The survey page collects budget, degree level, and campus size and passes them through `st.session_state` to the portal page
+
+### Surprising Issues
+Something that took longer than expected was wiring the survey inputs into the portal page. The survey stores campus size as a string like "Small (<5,000 students)" so I had to map those back to numbers before passing them to the model. Same thing with degree level, it comes in as "Bachelor's Degree" and the model needs a 1, 2, or 3. Also the budget from the survey is just a raw number but Flask was expecting a float in the URL so I had to update the route to accept any number and cast it manually. There were a lot of small things that had to line up between the frontend and the model and every time I fixed one thing I realized I forgot to update something else connected to it. This is a surprise to me because I didn't realize how many little things and changes I miss all the time, and don't automatically think about. So that's something I also want to work on. Making sure to not forget about the little things when im so focused on the big picture.
