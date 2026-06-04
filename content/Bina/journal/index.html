@@ -607,11 +607,27 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
    <button onclick="blockEntry(this)" class="diary-btn">block</button>
    <button onclick="openComments(this)" class="diary-btn">comments</button>
  </div>
+
+ <!-- ENTRY 4 -->
+<div class="card" style="margin-bottom:16px;" data-entry-id="4">
+ <div class="entry" style="border-bottom:none;">
+   <div class="entry-date" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">leuven, june 04, 2026</div>
+   <div class="entry-title" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">i turned my jupyter notebook into a real backend and somehow the app works now #milestones #YANKEESWON!!!!</div>
+   <div class="entry-content visible">
+     <p class="entry-body" contenteditable="true" style="outline:none;cursor:text;min-height:80px;" spellcheck="false">ok so for phase III i was responsible for taking everything i built in phase II: the labor market prediction models, the  Eurostat data, all of it and making it actually run inside our app. which is a different kind of hard than building it in a notebook. first i converted the notebook code into a pure python script (labor.py) in the backend. this meant separating the functions (what happens when a user asks for a prediction) from the training logic (how the model gets fitted in the first place). i also wrote a train.py file that can pull data from the database, refit both models, and write the weights back, so if we ever get new Eurostat data, we don't have to redeploy anything. the professor's slides specifically showed this pattern and i was very proud of myself for actually implementing it correctly. #trainOnce then i seeded the database. i generated a SQL file with all 2,354 rows of cleaned data (labor_observations) and two tables for storing model weights (model1_params and model2_params). this was a fun moment where i ran a python cell in jupyter that wrote a 2,373-line SQL file. automation is neat!! getting the db cursor to return dictionaries instead of tuples was a fun debugging session that took longer than it should have. (dictionary=True was right there the whole time.) for the frontend i built the Labor Statistician Dashboard page in Streamlit. it has four interactive Plotly charts organized into tabs, and a prediction widget at the top that auto-populates from the most recent actual data for whatever country and sector you pick. so if you select Germany + ICT, the inputs fill in Germany's actual ICT employment and graduate numbers automatically. outside the project this week, we had a guest lecture on EU labor policy that was useful for what i'm building. it's one thing to look at NACE sector codes in a dataset, another to hear someone explain why the EU tracks them that way in the first place. also the cobblestones in leuven are still trying to destroy my ankles but i remain undefeated. #leuvenisevil?</p>
+   </div>
+ </div>
+ <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--tan);display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+   <button onclick="heartEntry(this)" class="diary-btn heart-btn">
+     <span class="heart-icon">♡</span>&thinsp;<span class="heart-count">0</span>
+   </button>
+   <button onclick="blockEntry(this)" class="diary-btn">block</button>
+   <button onclick="openComments(this)" class="diary-btn">comments</button>
+ </div>
 </div>
 
-</div>
 <!-- ══ ABOUT ══ -->
-<div class="panel on" id="p-about">
+<div class="panel" id="p-about">
   <div class="cols">
     <div>
       <div class="sh">questions</div>

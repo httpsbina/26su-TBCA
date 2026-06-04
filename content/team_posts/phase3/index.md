@@ -75,6 +75,44 @@ def toggle_favorite(student_id, university_id):
         return error_response("Could not toggle favorite", 400)
 ```
 
+## Data Model Updates
+ 
+We added the following tables since Phase II:
+ 
+- labor_observations: (**sourced**) 2,354 rows of cleaned Eurostat data (employment by sector, graduates by field, working-age population) across EU27, 2013–2023
+- model1_params: (**generated**) trained weights for the employment level prediction model
+- model2_params: (**generated**) trained weights for the employment change prediction model
+- labor_statistician: (**generated**) mock user data for the labor statistician persona
+
+## ML Features
+ 
+**Model 1 — Employment Level**
+Feature: last year's employment (employment_thousands_lag1). Employment is highly autocorrelated year over year, making the lag the strongest single predictor.
+ 
+**Model 2 — Employment Change**
+Features: graduates entering the sector, last year's employment, and year. Graduates measure supply-side pipeline pressure, the lag has the sector size and momentum, and year gets the long-run trends like ICT growth and agricultural decline across the EU.
+ 
+## Surprising Issues
+ 
+- Model 1 performed poorly when using only graduate counts, adding the employment lag resolved this, since graduates alone don't tell you how large a sector already is
+- Model 2 R^2 was modest (~0.36), which makes sense: employment change is pushed by factors outside our data like recessions, policy, and COVID-19
+- The 2020 data year is a visible outlier in several sectors due to COVID, which affected test performance
+- Mapping Eurostat's graduate fields (ISCED) to employment sectors (NACE) required a manual crosswalk, an approximation that limits model precision
+
+## REST API Matrix
+ 
+| Method | Route | Description | User Story |
+|--------|-------|-------------|------------|
+| GET | `/labor/predict/level/<emp_lag1>` | Predict employment level | Statistician forecasts sector employment |
+| GET | `/labor/predict/change/<graduates>/<emp_lag1>/<time>` | Predict employment change | Statistician checks if grad supply matches demand |
+| GET | `/labor/observations` | All labor observations | Populate charts |
+| GET | `/labor/observations/<geo>` | Filter by country | Specific country |
+| GET | `/labor/sectors` | List sectors | Populate UI dropdowns |
+| GET | `/labor/countries` | List countries | Populate UI dropdowns |
+| GET | `/labor/absorption` | Absorption rate by sector | Show graduate surplus/deficit by sector |
+| POST | `/labor/observations` | Add a data point | Admin adds new Eurostat data |
+| PUT | `/labor/observations/<id>` | Update a data point | Admin corrects an error |
+| DELETE | `/labor/observations/<id>` | Remove a data point | Admin removes a flagged row |
 ## User Interface
 
 ![Alt Text](StudentPage1.png)
