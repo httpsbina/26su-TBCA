@@ -75,13 +75,13 @@ def toggle_favorite(student_id, university_id):
         return error_response("Could not toggle favorite", 400)
 ```
 
-# User Interface
+## User Interface
 
 ![Alt Text](StudentPage1.png)
 
 *Figure 1 - Student Survey*
 
-### Description
+#### Figure 1 Description
 We created this page to allow a student user to input their personal preferences for university. Some of the options we included that are inputted into our ML model are budget, school size (Small, Medium, Large), and degree level (Bachelor's, Master's, or Doctorate's)
 
 ---
@@ -90,7 +90,7 @@ We created this page to allow a student user to input their personal preferences
 
 *Figure 2 - Student Portal Page (10 Universities & 5 Favorites)*
 
-### Description
+#### Figure 2 Description
 The page above provides a student a personalized list of universities based on their preferences. Alongside it are a list of favorites that the user can choose and rank to keep track of which universities they would most like to go to.
 
 ---
@@ -99,7 +99,7 @@ The page above provides a student a personalized list of universities based on t
 
 *Figure 3 - Student Portal University List (100 Universities)*
 
-### Description
+#### Figure 3 Description
 This page pulls up when a student clicks "View More" below their list of personalized universities. Our initial list only holds their top 10, but to allow students the flexibility to look at more pages, we added another page that shows their top 100 universities.
 
 ---
@@ -108,7 +108,7 @@ This page pulls up when a student clicks "View More" below their list of persona
 
 *Figure 4 - Student Portal Full Favorites List (All)*
 
-### Description
+#### Figure 4 Description
 This page is similar to the previous one. When a student clicks on "View More" below their list of favorites, rather than only seeing their top 5 favorites, they're able to see all of their favorites and interact with them.
 
 ---
@@ -117,7 +117,7 @@ This page is similar to the previous one. When a student clicks on "View More" b
 
 *Figure 5 - Budget Manager Portal*
 
-### Description
+#### Figure 5 Description
 The page above is our intial budget manager portal. A budget manager is able to see a large amount of data including information such as flagged universities, budget plans drafted, and submission deadline for budget plans. They're also able to see a list of universities that have plans or need plans to be drafted.
 
 ---
@@ -126,6 +126,6 @@ The page above is our intial budget manager portal. A budget manager is able to 
 
 *Figure 6 - Budget Manager Plan View*
 
-### Description
+#### Figure 6 Description
 A budget manager is able to see a specific plan they have created for a university by clicking "View Plan" to the right of a specific university. They are provided a program reallocation table which shows data such as program name, current target, budget adjustment, and status of plan.
 
