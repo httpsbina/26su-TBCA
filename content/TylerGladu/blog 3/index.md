@@ -18,4 +18,8 @@ For Phase III of our project, I helped design and implement our UI pages and con
 
 # Meaningful Experience
 
-One of my favorite experiences since Phase II has been going to Luxembourg. One of the aspects I loved most was the architecture. When we went to visit Eurostat, I noticed how modern the city and buildings looked and it almost made me feel like I was in Cyberpunk. I also saw the older parts of the city on the way to our amazing dinner with our professors, and really loved the historic scenery throughout the town. 
+One of my favorite experiences since Phase II has been going to Luxembourg. I really loved the architecture and city vibe. When we went to visit Eurostat, I noticed how modern the city and buildings looked and it almost made me feel like I was in Cyberpunk. I also saw the older parts of the city on the way to our amazing dinner with our professors, and really loved the historic scenery throughout the town. 
+
+![Alt Text](TJG06056.jpeg)
+![Alt Text](TJG06122.jpeg)
+![Alt Text](TJG05808.jpeg)
