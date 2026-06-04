@@ -10,16 +10,39 @@ authors:
 showAuthorsBadges : false
 ---
 
-# Phase 2 Overview
+# Phase 3 Overview
 
-## University Ranking Model For Students
+This phase my main focus was taking the university ranking model I built in 
+phase 2 and getting it out of the Jupyter Notebook and into the actual app.
 
-For Phase 2 my main focus on the data science side was on the student persona, building the ranking model that would allow students to answer survey questions and get a resulting ranking of the top universities best fit for them personally. I started by pulling university data from the Hipo University Domains API, filtering it down to only the 27 EU member states, and saving it as a csv so we would not have to repeatedly call the API every time we reran the notebook cells. The bigger challenge was working with the ETER university budget statistics dataset. This was because it came as an Excel file where all columns were stored as one long semicolon separated string per row instead of a normal table with values in separate organized cells. I wrote a Python script to load the excel file, split each row on the semicolons, assign the first row as column headers, and clean up the missing values displayed as 'm' and replacing them with NA. After renaming the columns to more "user friendly" names and selecting the relevant features, I merged the two datasets together on the English university name column from the ETER data. Getting the two sources to match was a bit of a challenge given encoding differences in European university names with special characters. With the help of my TA we were able to fix the momentary issue to allow for most universities to have user friendly names. Unfortunately a few universities are left with names that include special characters, however that will be addressed in phase 3 as for phase 2 it wasn't a core issue to attack at the time.
+On the model side, I converted the notebook into a `university_ranking_model` 
+Python class in `modelrec.py` that pulls university data directly from the 
+database at prediction time instead of from a csv file. I also converted the 
+cleaned model dataset into a SQL file (`02_modelrec.sql`) and loaded it into 
+the `modelrec` table in the database so the model has data to work with.
+
+I also updated the campus size formula since we changed the survey question 
+from a 1-10 slider to Small, Medium, Large options. The formula previously 
+mapped size on a 1-10 scale and I updated it to use 1-3 instead.
+
+For the routes I wrote two endpoints in `modelrec_routes.py`:
+- `GET /modelrec/predict/<budget>/<degree>/<size>` - returns top 10 matches
+- `GET /modelrec/predict/all/<budget>/<degree>/<size>` - returns all ranked 
+universities
+
+On the frontend I am currently working on the student portal page 
+(`02_Student_Data.py`) which shows personalized recommendations pulled live 
+from the ML model route and the student's saved favorites. The survey page 
+feeds into this page by passing the student's budget, degree level, and 
+campus size through `st.session_state`. These pages are still in progress 
+and being debugged.
 
 ## This Past Week...
 ### The Speaker of the Week.
-I have enjoyed this past week in the program with visiting brussels and hearing more interesting guest speakers, my favorite of which is the speaker who works in a think tank. He was honest in his responses and not always positive which I think made the discussions with him even more engaging. Having the honest ideas, reactions, and an overall honest opinion disussion allowed me to ask more interesting questions beyond the surface level. It was refreshing and I think he was my overall favorite of the speakers so far.
+I dont think I have a favorite this week. I personally loved the speakers we heard on 6/3 at the think tank who gave a new perspective on the issues we have heard from their counterpart think tanks and other EU insitutions. I loved the guest speaker they brought in specifically who wasn't making a perfect future narrative but was honest and real in her answers. I think I've definately said that about my previous favorite speakers. However this is because the speakers such as them are passionate but honest and not trying to paint a pretty little picture of what the world or EU is, not making them morally superior, just being honest in the state of the world, and wanting to open discussions with us rather than talk at us.
 
-### My Day Off!
-On the day off we had on sunday I had the unique opportunity to go visit Bruges with Elise, Meghan, Bina, and Minju. It was such a beautiful town with breathtaking architecture. We spent the day walking all over the city, taking a lot of pictures, going to a street market where I got some cute magnets for my collection, and just enjoying the weather.
+### My Evening and Day Off in France!
+So while we were in strasboug on saturday evening I had a great time shopping till I dropped with Meghan, Elise, and Minju. The next day Meghan and I took a train to the town of Nancy, which had a lovely main square, horrible lattes, but peacocks and goats in a minature zoo in their main park. In the evening we took a train to Colmar to meet with Minju and get dinner by the canals. The town was my favorite of the two because it was so beautiful and something straight out of a movie. Apparently the town inspired Bells town in Beauty and the Beast.
+
+* P.S. Currently cannot update with photos but will for phase 4.
 
