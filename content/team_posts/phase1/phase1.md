@@ -50,27 +50,27 @@ As Maria, I want to understand the opinions of other students with similar prefe
 
 ### Cher Lemieux
 
-Cher Lemieux is the sitting Executive Vice-President for Social Rights, Skills, Quality Jobs, and Preparedness under the European Commission. She is responsible for ensuring that European workers have access to quality employment, that education systems across member states are producing skilled graduates, and that the EU workforce remains competitive and prepared for future economic shifts. As student-to-workforce pipelines become increasingly data-driven, tools that connect secondary students to the right university programs are directly relevant to her mandate; better university matching means stronger graduate outcomes, which feeds directly into EU labor market health.
+- **Age:** 31
+- **Occupation:** Executive Vice-President for Social Rights, Skills, Quality Jobs, and Preparedness
+- **Nationality:** French
 
-* Age: 31
-* Occupation: Executive Vice-President for Social Rights, Skills, Quality Jobs, and Preparedness
-* Nationality: French
+Cher Lemieux is the sitting Executive Vice-President for Social Rights, Skills, Quality Jobs, and Preparedness under the European Commission. She is responsible for ensuring that European workers have access to quality employment, that education systems across member states are producing skilled graduates, and that the EU workforce remains competitive and prepared for future economic shifts. As student-to-workforce pipelines become increasingly data-driven, tools that connect secondary students to the right university programs are directly relevant to her mandate; better university matching means stronger graduate outcomes, which feeds directly into EU labor market health.
 
 #### User Story 1
 
-Cher has started noticing something interesting in the data: students across the EU are signaling where the workforce is headed long before they ever graduate through their declared/intrested majors. As Cher Lemieux, I want to see what fields students are choosing to study and compare that against where each region actually needs workers. If students in a particular country are flooding into programs the local economy has no room for, or ignoring fields it desperately needs, I want to know. I can use this tool to catch those patterns early and push funding toward the universities and programs that will matter most.
+As Cher Lemieux, I want to see what fields students are choosing to study and compare that against where each region actually needs workers. If students in a particular country are flooding into programs the local economy has no room for, or ignoring fields it desperately needs, I want to know. I can use this tool to catch those patterns early and push funding toward the universities and programs that will matter most.
 
 #### User Story 2
 
-The Commission just handed Cher a substantial grant with one directive: make it count. The easy move would be spreading it thin across every university, but Cher knows that helps no one. She wants to find the schools that are either starving for resources or producing strong outcomes without enough support behind them. As Cher Lemieux, I want to use student interest and enrollment data to identify which universities are being overlooked and which ones are already doing good work. I can use this tool to make sure the money goes to the places that will actually do something with it.
+As Cher Lemieux, I want to use student interest and enrollment data to identify which universities are being overlooked and which ones are already doing good work. I can use this tool to make sure the money goes to the places that will actually do something with it.
 
 #### User Story 3
 
-Cher has been watching how certain member states lose their students for years. Students leave for universities abroad, build their lives there, and never come back. The countries that can least afford to lose young talent are losing the most of it. As Cher Lemieux, I want to see how many students are actively looking to study outside their home country and where they are hoping to go. I can use this tool to get ahead of it, understanding the scale of outward interest region by region so she can start working with member states to build up what is keeping students from wanting to stay in the first place.
+As Cher Lemieux, I want to see how many students are actively looking to study outside their home country and where they are hoping to go. I can use this tool to get ahead of it, understanding the scale of outward interest region by region so she can start working with member states to build up what is keeping students from wanting to stay in the first place.
 
 #### User Story 4
 
-One of the biggest things holding students back from studying abroad is not the cost or the distance, it is the fear that their degree will not mean anything when they get home. Cher has heard this concern repeated across every member state and knows it is suppressing mobility numbers. As Cher Lemieux, I want to track how many students are ruling out universities in other countries and whether credential concerns are showing up as a pattern in the data. I can use this tool to build the case for pushing harder on degree standardization across the EU.
+As Cher Lemieux, I want to track how many students are ruling out universities in other countries and whether credential concerns are showing up as a pattern in the data. I can use this tool to build the case for pushing harder on degree standardization across the EU.
 
 ### Zuhal Demir
 
@@ -82,19 +82,19 @@ Zuhal Demir is the current sitting Flemish Minister for Education, Justice, and 
 
 #### User Story 1
 
-Because students get to decide wherever in the country to study, University of Antwerp (UAntwerp) has had a declining student enrollment for many years due to its poor programs and dangerous campus. As Zuhal Demir, I want to determine whether to allocate more money to the university to make it more desirable, or reallocate funding to other more popular universities. I use this tool to predict the effects of funding amounts at UAntwerp and other universities.
+As Zuhal Demir, I  want to see which universities students are more interested in based off their "favorited" universities. I can use this tool to gain insights into the popularity of universities among incoming students.
 
 #### User Story 2
 
-The Flanders Educational Department just received a large grant to fund public universities in Flanders. As Zuhal Demir, I want to examine where to allocate these funds to maximize the gain in students' academic performance. I can use this tool to gain insights into the effects of increased funding at different universities and programs.
+As Zuhal Demir, I want to examine where to allocate extra funds to maximize the gain in students' academic performance. I can use this tool to gain insights into the effects of increased funding at different universities and programs.
 
 #### User Story 3
 
-Due to budget shortages, the Flanders Educational Department must cut a large amount in funding from public universities. As Zuhal Demir, I want to examine where these cuts could occur to minimize impact on students' academic performance. I can use this tool to gain insights into the effects of decreased funding and project students' academic performance at universities based on funding received.
+As Zuhal Demir, I want to examine where budget cuts could occur to minimize impact on students' academic performance. I can use this tool to gain insights into the effects of decreased funding and project students' academic performance at universities based on funding received.
 
 #### User Story 4
 
-KU Leuven just completed a large expansion and will be receiving 2000 more students next academic year. Hence, the university will require more funding to support these students. As Zuhal Demir, I want to examine how much funding would be ideal to support the students' academic performance. I can use this tool to gain insights into how students are likely to perform based on how much the school receives.
+As Zuhal Demir, I want to examine how much funding would be ideal to support the students' academic performance. I can use this tool to gain insights into how students are likely to perform based on how much the school receives.
 
 
 ## Candidate Data Sources
