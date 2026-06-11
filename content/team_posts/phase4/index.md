@@ -1,9 +1,9 @@
 ---
-title: "Project - Phase IIII"
+title: "Project - Phase IV"
 date: 2026-06-03
 draft: false
 description: "Finishing our project"
-slug: "phase3post"
+slug: "phase4post"
 tags: ["project", "Setup"]
 authors:
   - "alyssa_haidar"
