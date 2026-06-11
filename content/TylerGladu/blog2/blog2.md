@@ -1,5 +1,5 @@
 ---
-title: "Week 2: Phase 2 Reflection "
+title: "Phase 2: Reflection and Contributions "
 date: 2026-05-18
 draft: false
 description: "Experiences so far in Leuven, Belgium"
