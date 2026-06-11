@@ -1,6 +1,6 @@
 ---
 title: "My First Week in Leuven"
-date: 2026-05-17
+date: 2026-05-19
 draft: false
 description: "What I've been up to across the pond"
 slug: "blog1"   # if you use, needs to be different for every post

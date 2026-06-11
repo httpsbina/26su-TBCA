@@ -1,6 +1,6 @@
 ---
 title: "Week 2"
-date: 2026-05-17
+date: 2026-05-26
 draft: false
 description: "Starting to know my way around"
 slug: "blog2"   # if you use, needs to be different for every post
