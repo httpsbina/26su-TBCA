@@ -13,7 +13,7 @@ authors:
 showAuthorsBadges: false
 ---
 
-## University Ranking ML Model — Alyssa Haidar
+## University Ranking ML Model
 
 ### What the Model Does
 
@@ -47,6 +47,10 @@ The fix was to pre-compute and store all coordinates. A geocoding script was run
 The distance calculation itself was replaced with the haversine formula.
 
 This runs in microseconds per university with no external calls. The student selects their home country from a dropdown of all 27 EU countries, the model looks up that country's coordinates from `country_coords`, then computes the haversine distance to each university's stored coordinates and filters out any that exceed the student's maximum distance preference before running cosine similarity on the remaining set.
+
+### Model Assumptions
+
+The cosine similarity model has one main assumption of note. We are assuming that the cosine distance between the vectors is the most trustworthy, meaning that the distance is accurately ranking real-world similarity between universities.
 
 ## EU Labor Forecasting & Budget Reallocation Models
 
