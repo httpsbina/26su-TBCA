@@ -88,6 +88,8 @@ The budget side reads from the same `labor_observations` table and writes plans 
 
 ### Model Assumptions & Predictive Checks
 
+
+
 **Both models are OLS regressions, so they carry the standard OLS assumptions:** a linear relationship between predictors and target, independent errors, constant error variance (homoscedasticity), roughly normal residuals, and no severe multicollinearity. Features were standardized with `StandardScaler` before fitting, and the exact scaler means and scales are stored and reapplied at inference so a request is scaled identically to the training data.
 
 **Model 1 scores R^2 = 0.99 but that number is a caveat.** The single feature is last year's employment, and employment is extremely persistent: a sector with 700k workers this year almost certainly has roughly 700k next year. The model is, in effect, learning "next year ≈ this year." The fit is correct but the target is easy, and the high R^2 partly reflects autocorrelation rather than any predictive insight.
@@ -99,5 +101,7 @@ The budget side reads from the same `labor_observations` table and writes plans 
 **The assumption most at risk is independence of errors.** The data is panel-shaped: the same country–sector pair is observed repeatedly across years, and those observations are serially correlated. Plain OLS treats them as independent, which understates the true standard errors. We did not fit panel or fixed-effects models, so the confidence in any single coefficient should be read with that limitation in mind.
 
 ### What I'd Verify Before Trusting It Further
+
+{{< iframe src="residual_plot.html" width="100%" height="500" >}}
 
 The R^2 values are validation, but they aren't the whole. Before relying on these in anything beyond a prototype I'd add: residual-vs-fitted plots to test linearity and homoscedasticity, a held-out test split or time-aware cross-validation (rather than scoring on the training data), and a variance-inflation check for multicollinearity in Model 2. The change model in particular needs better features, its 0.21 R^2 says the three current inputs aren't enough.
