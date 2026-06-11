@@ -624,6 +624,23 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
    <button onclick="blockEntry(this)" class="diary-btn">block</button>
    <button onclick="openComments(this)" class="diary-btn">comments</button>
  </div>
+
+ <!-- ENTRY 5 -->
+<div class="card" style="margin-bottom:16px;" data-entry-id="5">
+  <div class="entry" style="border-bottom:none;">
+    <div class="entry-date" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">leuven, june 10, 2026</div>
+    <div class="entry-title" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">the last one (i built a budget model and then i had to say goodbye to belgium)  #theEnd</div>
+    <div class="entry-content visible">
+      <p class="entry-body" contenteditable="true" style="outline:none;cursor:text;min-height:80px;" spellcheck="false">and just like that it's phase IV. the part where everything we built has to actually be a Real Application in front of evb and their moms. #terrifying<br><br>my job this phase was the budget manager persona. the idea: a university has a fixed budget and wants to know which programs to fund more. so i take the students at that uni, map each of their majors to the industry sectors they'd actually work in (the crosswalk again, now pulling double duty #reuse), and score how 'in demand' each sector is using the labor data. The computer science sector is heating up (SURPRISING)? fund it more. then a softmax turns those scores into real budget percentages and it tells you which programs are underfunded vs overfunded. i made a model that gives universities money advice. #moneyMoves<br><br>the part i'm proud of: instead of trusting both my models equally, i made them combine by weighting each one by how accurate it is. model 1 was the R²=0.99 memorizer and model 2 was a much more realistic 0.21, so the smart move is to lean on the good one and trust the bad one less. such a small thing but it felt like Real Statistics. #statistician<br><br>i also wrote up the team blog post and my own section explaining all the model assumptions and the stuff we left out of the app (the 'here's what we'd check next' bits). turns out being upfront about a model's weaknesses is way more interesting  than pretending it's perfect. growth! And not ego! <br><br>and then. we present tmrw. eight minutes, elevator pitch, the whole evolution of our data, a live demo, and Q&A that i will make out of.<br><br>it's strange to be at the end. i came here thinking this was just a coding trip and somehow leuven snuck into me. the cobblestones (still undefeated btw, my ankles WON, #finalscore), the gothic spires, the bikes that hunt you, sitting in the actual country where the EU was dreamed up while building an app to help EU students find their way. i'm going to miss it more than i thought i would. tot ziens, leuven. you were so much smaller and so much bigger than i expected. ♡ #studyabroad #worthit #theEnd</p>
+    </div>
+  </div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--tan);display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+    <button onclick="heartEntry(this)" class="diary-btn heart-btn">
+      <span class="heart-icon">♡</span>&thinsp;<span class="heart-count">0</span>
+    </button>
+    <button onclick="blockEntry(this)" class="diary-btn">block</button>
+    <button onclick="openComments(this)" class="diary-btn">comments</button>
+  </div>
 </div>
 
 <!-- ══ ABOUT ══ -->
