@@ -14,9 +14,6 @@ showAuthorsBadges: false
 ---
 # TBCA - Solve the Future
 
-## University Ranking ML Model
-
-
 ## Project Overview
 
 ### App Description
