@@ -1,5 +1,5 @@
 ---
-title: "Week 1: Classes, Food, and Phase 1"
+title: "Phase 1: Classes, Food, and Belgium"
 date: 2026-05-18
 draft: false
 description: "Experiences so far in Leuven, Belgium"
