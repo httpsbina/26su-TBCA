@@ -33,7 +33,7 @@ Budget Managers are able to view a variety of statistics about each university, 
 
 ## ML Models
 
-### University Ranking ML Model — Alyssa Haidar
+### University Ranking ML Model
 
 #### What the Model Does
 
