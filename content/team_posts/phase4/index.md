@@ -127,16 +127,6 @@ The budget side reads from the same `labor_observations` table and writes plans 
 
 The R^2 values are validation, but they aren't the whole. Before relying on these in anything beyond a prototype I'd add: residual-vs-fitted plots to test linearity and homoscedasticity, a held-out test split or time-aware cross-validation (rather than scoring on the training data), and a variance-inflation check for multicollinearity in Model 2. The change model in particular needs better features, its 0.21 R^2 says the three current inputs aren't enough.
 
-## REST API
-For this project we created a REST API using Python Flask. We wrote a series of routes to interact with our MySQL database. Our finalized REST API Matrix is shown below documenting all the routes used in our program.
-
-{{< csvtable file="rest_api_matrix.csv" >}}
-
-## Deployment Using Docker
-Our application runs on three docker containers allowing for segmentation between services and allowing each service to be scaled and implemented individually. These services run on the following ports:
-- `web-app:8501`: Our Streamlit web app UI runs on port 8051
-- `web-api:4000`: Our Flask API runs on port 4000
-- `mysql-db:3306`: Our MySQL database runs on port 3306
 ### Budget Advisor: Assumptions & Caveats
 
 **The budget advisor is a scoring model, not a regression, so its assumptions are mostly design choices rather than statistical ones.** It does not predict a single number with a confidence interval. It ranks each sector by how "in demand" it looks, then recommends shifting program budgets toward the high-demand sectors.
@@ -160,3 +150,14 @@ Our application runs on three docker containers allowing for segmentation betwee
 ### What I'd Verify Before Trusting It Further
 
 The numbers it returns are internally consistent (the recommended shifts net out to the original budget, so it is a reallocation rather than invented money). But before relying on it beyond a prototype I would: sensitivity-test the three weights and the halfway-blend constant to see how much the recommendations move when they change, replace the redundant pair of trend signals with one to avoid double-counting momentum, and expand the major-to-sector mapping so the model covers more than three programs. The weights and thresholds deserve the most scrutiny, since right now they are assumptions.
+
+## REST API
+For this project we created a REST API using Python Flask. We wrote a series of routes to interact with our MySQL database. Our finalized REST API Matrix is shown below documenting all the routes used in our program.
+
+{{< csvtable file="rest_api_matrix.csv" >}}
+
+## Deployment Using Docker
+Our application runs on three docker containers allowing for segmentation between services and allowing each service to be scaled and implemented individually. These services run on the following ports:
+- `web-app:8501`: Our Streamlit web app UI runs on port 8051
+- `web-api:4000`: Our Flask API runs on port 4000
+- `mysql-db:3306`: Our MySQL database runs on port 3306
