@@ -2,6 +2,7 @@
 title: "bina's journal"
 layout: "raw"
 showDate: false
+markup: html
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -215,7 +216,7 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
     <a onclick="go('gallery',this)">gallery</a>
     <a onclick="go('diary',this)">diary</a>
     <a onclick="go('about',this)">about</a>
-    <a href="/" style="margin-left:auto;">back</a>
+    <a href="/team_posts/" style="margin-left:auto;" target="_parent">back</a>
   </div>
 </nav>
 
@@ -590,8 +591,57 @@ body{background:var(--bg);background-image:repeating-linear-gradient(transparent
     </div>
   </div>
 
-</div>
+<!-- ENTRY 3 -->
+<div class="card" style="margin-bottom:16px;" data-entry-id="3">
+ <div class="entry" style="border-bottom:none;">
+   <div class="entry-date" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">leuven, may 27, 2026</div>
+   <div class="entry-title" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">i built a labor market prediction model and somehow it works!! #datascientist</div>
+   <div class="entry-content visible">
+     <p class="entry-body" contenteditable="true" style="outline:none;cursor:text;min-height:80px;" spellcheck="false">ok so for phase II of our project i was in charge of the data science side for the labor statistician persona. which sounds very fancy and important and i am choosing to lean into that energy.<br><br>basically i pulled two real datasets from the EU's statistics database (Eurostat) using an API, one for employment by sector across all 27 EU countries, one for university graduates by field of study. the fun(!) part was that the two datasets are completely different. employment uses these short codes like "J" for ICT, graduates use full names like "Information and communication technologies". so i had to build a crosswalk dictionary to translate one into the other before i could merge them. it was annoying and then it worked and i felt very smart. #dataScience #girlgenius<br><br>then i built two linear regression models. the first one predicts employment levels and gets R² = 1.0 which SOUNDS amazing until you realize it's basically just memorizing last year's number and calling it a prediction. very sneaky, booooo! my professor caught it immediately but said it was ok (thx dr. geber). so i built a second model that predicts year-over-year employment CHANGE instead, which actually forces the model to use the graduate data. R² = 0.258, which is more realistic and it means graduates and time explain about 26% of why employment changes. the other 74% is recessions and policy and stuff we don't have. #modelInterpretation<br><br>the hardest part was honestly just getting the data to cooperate. every time i thought i had the columns figured out they'd be named something slightly different. <br><br>but the charts came out really pretty and the germany actual vs predicted plots look almost identical which is the most satisfying thing i've seen all week. #worthit</p>
+   </div>
+ </div>
+ <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--tan);display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+   <button onclick="heartEntry(this)" class="diary-btn heart-btn">
+     <span class="heart-icon">♡</span>&thinsp;<span class="heart-count">0</span>
+   </button>
+   <button onclick="blockEntry(this)" class="diary-btn">block</button>
+   <button onclick="openComments(this)" class="diary-btn">comments</button>
+ </div>
 
+ <!-- ENTRY 4 -->
+<div class="card" style="margin-bottom:16px;" data-entry-id="4">
+ <div class="entry" style="border-bottom:none;">
+   <div class="entry-date" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">leuven, june 04, 2026</div>
+   <div class="entry-title" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">i turned my jupyter notebook into a real backend and somehow the app works now #milestones #YANKEESWON!!!!</div>
+   <div class="entry-content visible">
+     <p class="entry-body" contenteditable="true" style="outline:none;cursor:text;min-height:80px;" spellcheck="false">ok so for phase III i was responsible for taking everything i built in phase II: the labor market prediction models, the  Eurostat data, all of it and making it actually run inside our app. which is a different kind of hard than building it in a notebook. first i converted the notebook code into a pure python script (labor.py) in the backend. this meant separating the functions (what happens when a user asks for a prediction) from the training logic (how the model gets fitted in the first place). i also wrote a train.py file that can pull data from the database, refit both models, and write the weights back, so if we ever get new Eurostat data, we don't have to redeploy anything. the professor's slides specifically showed this pattern and i was very proud of myself for actually implementing it correctly. #trainOnce then i seeded the database. i generated a SQL file with all 2,354 rows of cleaned data (labor_observations) and two tables for storing model weights (model1_params and model2_params). this was a fun moment where i ran a python cell in jupyter that wrote a 2,373-line SQL file. automation is neat!! getting the db cursor to return dictionaries instead of tuples was a fun debugging session that took longer than it should have. (dictionary=True was right there the whole time.) for the frontend i built the Labor Statistician Dashboard page in Streamlit. it has four interactive Plotly charts organized into tabs, and a prediction widget at the top that auto-populates from the most recent actual data for whatever country and sector you pick. so if you select Germany + ICT, the inputs fill in Germany's actual ICT employment and graduate numbers automatically. outside the project this week, we had a guest lecture on EU labor policy that was useful for what i'm building. it's one thing to look at NACE sector codes in a dataset, another to hear someone explain why the EU tracks them that way in the first place. also the cobblestones in leuven are still trying to destroy my ankles but i remain undefeated. #leuvenisevil?</p>
+   </div>
+ </div>
+ <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--tan);display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+   <button onclick="heartEntry(this)" class="diary-btn heart-btn">
+     <span class="heart-icon">♡</span>&thinsp;<span class="heart-count">0</span>
+   </button>
+   <button onclick="blockEntry(this)" class="diary-btn">block</button>
+   <button onclick="openComments(this)" class="diary-btn">comments</button>
+ </div>
+
+ <!-- ENTRY 5 -->
+<div class="card" style="margin-bottom:16px;" data-entry-id="5">
+  <div class="entry" style="border-bottom:none;">
+    <div class="entry-date" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">leuven, june 10, 2026</div>
+    <div class="entry-title" contenteditable="true" style="outline:none;cursor:text;" spellcheck="false">the last one (i built a budget model and then i had to say goodbye to belgium)  #theEnd</div>
+    <div class="entry-content visible">
+      <p class="entry-body" contenteditable="true" style="outline:none;cursor:text;min-height:80px;" spellcheck="false">and just like that it's phase IV. the part where everything we built has to actually be a Real Application in front of evb and their moms. #terrifying<br><br>my job this phase was the budget manager persona. the idea: a university has a fixed budget and wants to know which programs to fund more. so i take the students at that uni, map each of their majors to the industry sectors they'd actually work in (the crosswalk again, now pulling double duty #reuse), and score how 'in demand' each sector is using the labor data. The computer science sector is heating up (SURPRISING)? fund it more. then a softmax turns those scores into real budget percentages and it tells you which programs are underfunded vs overfunded. i made a model that gives universities money advice. #moneyMoves<br><br>the part i'm proud of: instead of trusting both my models equally, i made them combine by weighting each one by how accurate it is. model 1 was the R²=0.99 memorizer and model 2 was a much more realistic 0.21, so the smart move is to lean on the good one and trust the bad one less. such a small thing but it felt like Real Statistics. #statistician<br><br>i also wrote up the team blog post and my own section explaining all the model assumptions and the stuff we left out of the app (the 'here's what we'd check next' bits). turns out being upfront about a model's weaknesses is way more interesting  than pretending it's perfect. growth! And not ego! <br><br>and then. we present tmrw. eight minutes, elevator pitch, the whole evolution of our data, a live demo, and Q&A that i will make out of.<br><br>it's strange to be at the end. i came here thinking this was just a coding trip and somehow leuven snuck into me. the cobblestones (still undefeated btw, my ankles WON, #finalscore), the gothic spires, the bikes that hunt you, sitting in the actual country where the EU was dreamed up while building an app to help EU students find their way. i'm going to miss it more than i thought i would. tot ziens, leuven. you were so much smaller and so much bigger than i expected. ♡ #studyabroad #worthit #theEnd</p>
+    </div>
+  </div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--tan);display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+    <button onclick="heartEntry(this)" class="diary-btn heart-btn">
+      <span class="heart-icon">♡</span>&thinsp;<span class="heart-count">0</span>
+    </button>
+    <button onclick="blockEntry(this)" class="diary-btn">block</button>
+    <button onclick="openComments(this)" class="diary-btn">comments</button>
+  </div>
+</div>
 
 <!-- ══ ABOUT ══ -->
 <div class="panel" id="p-about">
