@@ -124,6 +124,7 @@ The budget side reads from the same `labor_observations` table and writes plans 
 #### What I'd Verify Before Trusting It Further
 
 {{< iframe src="residual_plot.html" width="100%" height="500" >}}
+*Figure 1 - Residual Plot*
 
 The R^2 values are validation, but they aren't the whole. Before relying on these in anything beyond a prototype I'd add: residual-vs-fitted plots to test linearity and homoscedasticity, a held-out test split or time-aware cross-validation (rather than scoring on the training data), and a variance-inflation check for multicollinearity in Model 2. The change model in particular needs better features, its 0.21 R^2 says the three current inputs aren't enough.
 
@@ -151,10 +152,24 @@ The R^2 values are validation, but they aren't the whole. Before relying on thes
 
 The numbers it returns are internally consistent (the recommended shifts net out to the original budget, so it is a reallocation rather than invented money). But before relying on it beyond a prototype I would: sensitivity-test the three weights and the halfway-blend constant to see how much the recommendations move when they change, replace the redundant pair of trend signals with one to avoid double-counting momentum, and expand the major-to-sector mapping so the model covers more than three programs. The weights and thresholds deserve the most scrutiny, since right now they are assumptions.
 
+## Updated Database Relational Model
+Over the course of phase 3 and 4, we have updated our database to include entities required for our ML models and made changes to our original database design:
+- Added `labor_observations` `model1_params` `model2_params` and `country_coords` entities for ML models
+- Created `labor_statistician` entity to store our labor statistician users
+- Renamed `gov_worker` entity to `budget_manager` for clarity
+- Removed `university_budget_plan` entity as we chose to simplify our budget plan model to only represent singular universities
+- Added specific attributes to `survey_form` to store responses to our survey questions
+- Added attributes to `university` for use throughout the app
+- Divided first and last name into separate attributes in `student` `labor_statistician` and `budget_manager`
+
+![Alt Text](updated_relational_model.png)
+*Figure 2 - Updated Relational Model*
+
 ## REST API
 For this project we created a REST API using Python Flask. We wrote a series of routes to interact with our MySQL database. Our finalized REST API Matrix is shown below documenting all the routes used in our program.
 
 {{< csvtable file="rest_api_matrix.csv" >}}
+*Figure 3 - REST API Matrix*
 
 ## Deployment Using Docker
 Our application runs on three docker containers allowing for segmentation between services and allowing each service to be scaled and implemented individually. These services run on the following ports:
