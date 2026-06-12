@@ -77,7 +77,7 @@ The cosine similarity model has one main assumption of note. We are assuming tha
 
 We built two connected machine learning features. The first forecasts EU labor demand; the second uses that forecast to recommend how a university should reallocate its program budget. They stack together as the budget model is a consumer of the labor model's output.
 
-Labor forecasting is built from linear regression models trained on Eurostat employment data, broken out by country (`geo`) and industry sector (NACE code).
+Labor forecasting is built from linear regression models trained on Eurostat employment data, broken out by country (`geo`), industry sector (NACE code).
 
 - **Model 1 (level)** predicts next year's employment in a sector from a single feature: last year's employment. It answers "given where this sector is now, where will it be next year?"
 - **Model 2 (change)** predicts the year-over-year *change* in employment from three features: the number of graduates entering the sector, last year's employment, and the year.
@@ -90,7 +90,7 @@ The two are combined into one forecast, weighting each model by how accurate it 
 
 The model logic lives in three modules inside the Flask backend separated from the routes that serve them:
 
-- `backend/ml_models/labor.py`: the two regression models and the ensemble. The trained coefficients, intercepts, and `StandardScaler` parameters are stored directly as NumPy arrays in this file, so prediction at request time is  arithmetic. There is no sklearn dependency and no model file to load at runtime.
+- `backend/ml_models/labor.py`: the two regression models. The trained coefficients, intercepts, and `StandardScaler` parameters are stored directly as NumPy arrays in this file, so prediction at request time is  arithmetic. There is no sklearn dependency and no model file to load at runtime.
 - `backend/ml_models/budget.py`: sector demand scoring and the reallocation logic.
 - `backend/ml_models/crosswalk.py`: the major-to-sector mapping and the logic that turns a list of students into program weights.
 
@@ -137,3 +137,26 @@ Our application runs on three docker containers allowing for segmentation betwee
 - `web-app:8501`: Our Streamlit web app UI runs on port 8051
 - `web-api:4000`: Our Flask API runs on port 4000
 - `mysql-db:3306`: Our MySQL database runs on port 3306
+### Budget Advisor: Assumptions & Caveats
+
+**The budget advisor is a scoring model, not a regression, so its assumptions are mostly design choices rather than statistical ones.** It does not predict a single number with a confidence interval. It ranks each sector by how "in demand" it looks, then recommends shifting program budgets toward the high-demand sectors.
+
+**The demand score is a weighted combo of three signals, and those weights are hand-chosen.** Each sector's demand score combines graduate absorption (weight 0.45), a recent employment trend fit with `polyfit` (0.25), and the labor model's own outlook (0.30), each z-scored first so they sit on the same scale. Nothing learned or validated those weights. I picked them. That makes the weighting the single most contestable part of the model: a reviewer can reasonably ask "why 0.45?" and the only answer is that it reflects my judgment that absorption matters most.
+
+**Two of the three signals partly measure the same thing.** The `polyfit` trend and the model outlook both answer "is this sector's employment heading up or down," so they are correlated by construction. Together they make up more than half the score, which means the demand signal leans on employment momentum more than the three-way split makes it look. The model assumes these two carry independent information when they substantially overlap.
+
+**The trend fit assumes a linear employment trajectory over a short window.** The `polyfit` line is fit over the most recent six years, and it returns a neutral zero if a sector has fewer than three data points. So sparse sectors  contribute nothing rather than being flagged, and a six-point linear fit is noisy enough that a single odd year can swing a sector's score.
+
+**The reallocation only moves the budget halfway toward what demand suggests.** The final plan is not the raw demand split. It is a blend, set by a constant: the target allocation is half the current allocation and half the demand-driven split. Whether the budget should follow demand more aggressively or more cautiously is a  decision that this constant  makes.
+
+**The major-to-sector mapping is small and lossy.**  The mapping is a short hand-coded dictionary, so it assumes the entire student body collapses cleanly into the provided buckets, which is a strong simplification of what students actually study.
+
+**The "balanced" label is a threshold.** A program whose recommended share lands within two percent of its current share gets called balanced rather than over- or under-funded. That cutoff is arbitrary. 
+
+**Theis assumption is the premise itself: that employment trend plus graduate absorption is a fair proxy for "demand worth funding."**  The model treats a growing, graduate-absorbing sector as a signal that the university should fund the programs feeding it. That is a defensible heuristic, but it is a value choice, not a measured fact. It  encodes the position that universities should allocate money toward labor-market demand, which is a contestable stance rather than a  calculation.
+
+**It also inherits the labor data's panel structure.** Because the budget side reads from the same `labor_observations` table, the same serial correlation across years for each country-sector pair is present here. The trend fits treat those observations as independent when they are not.
+
+### What I'd Verify Before Trusting It Further
+
+The numbers it returns are internally consistent (the recommended shifts net out to the original budget, so it is a reallocation rather than invented money). But before relying on it beyond a prototype I would: sensitivity-test the three weights and the halfway-blend constant to see how much the recommendations move when they change, replace the redundant pair of trend signals with one to avoid double-counting momentum, and expand the major-to-sector mapping so the model covers more than three programs. The weights and thresholds deserve the most scrutiny, since right now they are assumptions.
