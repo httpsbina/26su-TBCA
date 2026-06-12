@@ -77,7 +77,7 @@ The cosine similarity model has one main assumption of note. We are assuming tha
 
 We built two connected machine learning features. The first forecasts EU labor demand; the second uses that forecast to recommend how a university should reallocate its program budget. They stack together as the budget model is a consumer of the labor model's output.
 
-Labor forecasting is built from linear regression models trained on Eurostat employment data, broken out by country (`geo`) and industry sector (NACE code).
+Labor forecasting is built from linear regression models trained on Eurostat employment data, broken out by country (`geo`), industry sector (NACE code).
 
 - **Model 1 (level)** predicts next year's employment in a sector from a single feature: last year's employment. It answers "given where this sector is now, where will it be next year?"
 - **Model 2 (change)** predicts the year-over-year *change* in employment from three features: the number of graduates entering the sector, last year's employment, and the year.
@@ -90,7 +90,7 @@ The two are combined into one forecast, weighting each model by how accurate it 
 
 The model logic lives in three modules inside the Flask backend separated from the routes that serve them:
 
-- `backend/ml_models/labor.py`: the two regression models and the ensemble. The trained coefficients, intercepts, and `StandardScaler` parameters are stored directly as NumPy arrays in this file, so prediction at request time is  arithmetic. There is no sklearn dependency and no model file to load at runtime.
+- `backend/ml_models/labor.py`: the two regression models. The trained coefficients, intercepts, and `StandardScaler` parameters are stored directly as NumPy arrays in this file, so prediction at request time is  arithmetic. There is no sklearn dependency and no model file to load at runtime.
 - `backend/ml_models/budget.py`: sector demand scoring and the reallocation logic.
 - `backend/ml_models/crosswalk.py`: the major-to-sector mapping and the logic that turns a list of students into program weights.
 
