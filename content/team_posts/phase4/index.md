@@ -12,7 +12,6 @@ authors:
   - "tyler_gladu"
 showAuthorsBadges: false
 ---
-
 # TBCA - Solve the Future
 
 ## Project Overview
@@ -68,7 +67,11 @@ The distance calculation itself was replaced with the haversine formula.
 
 This runs in microseconds per university with no external calls. The student selects their home country from a dropdown of all 27 EU countries, the model looks up that country's coordinates from `country_coords`, then computes the haversine distance to each university's stored coordinates and filters out any that exceed the student's maximum distance preference before running cosine similarity on the remaining set.
 
-### EU Labor Forecasting & Budget Reallocation Models
+### Model Assumptions
+
+The cosine similarity model has one main assumption of note. We are assuming that the cosine distance between the vectors is the most trustworthy, meaning that the distance is accurately ranking real-world similarity between universities.
+
+## EU Labor Forecasting & Budget Reallocation Models
 
 #### What the Models Do
 
