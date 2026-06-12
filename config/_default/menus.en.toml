@@ -28,7 +28,7 @@
 [[main]]
   name = "Bina Bakhramova"
   parent = "Team Members"
-  pageRef = "Bina"
+  url = "/bina/journal/"
   weight = 20
 
 [[main]]
