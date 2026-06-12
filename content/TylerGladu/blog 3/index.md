@@ -1,5 +1,5 @@
 ---
-title: "Week 3: Phase 3 Reflection "
+title: "Phase 3: Reflection and Contributions "
 date: 2026-05-18
 draft: false
 description: "The Bloom of June...h"

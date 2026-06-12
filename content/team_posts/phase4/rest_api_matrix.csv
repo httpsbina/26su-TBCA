@@ -1,0 +1,30 @@
+Command,GET,POST,PUT,DELETE
+/universities,All personas want to see a list of all available universities,N/A,N/A,N/A
+/universities/{university_id},Student wants to get specifics about a certain university,N/A,N/A,N/A
+/students,Program must get a list of all students,N/A,N/A,N/A
+/students/{student_id},Student wants to get their account,N/A,Student wants to edit their account,N/A
+/students/{student_id}/recommended_universities,Student wants to see the universities recommended to them,N/A,N/A,N/A
+/students/{student_id}/recommended_universities/{university_id},N/A,Program wants to recommend new universities to students,N/A,Student wants to delete a recommendation
+/pros_cons/student/{student_id}/university/{university_id},Student wants to review their pros and cons about a certain university,Student wants to make a pros and cons list about a university,Student wants to modify their pros and cons list,N/A
+/favorites/{student_id},Student wants to see all universities they have favorited,N/A,N/A,N/A
+/favorites/student/{student_id}/university/{university_id},N/A,Student wants to favorite or unfavorite a university (toggle),N/A,N/A
+/survey_form/{student_id},Student wants to view their survey answers,Student posts information about their university preferences,Student modifies their university preferences,N/A
+/labor_statisticians,Program must get a list of all labor statisticians,N/A,N/A,N/A
+/labor_statisticians/{labor_statistician_id},Labor statistician wants to get their account,N/A,Labor statistician wants to edit their account,Labor statistician wants to delete their account
+/budget_managers,Program must get a list of all budget managers,N/A,N/A,N/A
+/budget_managers/{budget_manager_id},Budget manager wants to get their account,N/A,Budget manager wants to edit their account,Budget manager wants to delete their account
+/stats/universities/{university_id},Labor statistician wants academic stats (enrollment & graduation rate) for a specific university,N/A,N/A,N/A
+/stats/universities/{university_id}/favorites,Labor statistician wants to see how many students have favorited a specific university,N/A,N/A,N/A
+/budget_plans,Budget manager wants to view all plans (optionally filtered by budget_manager_id),Budget manager wants to create a new plan,N/A,N/A
+/budget_plans/{plan_id},N/A,N/A,Budget manager wants to update an existing plan,N/A
+/modelrec/predict/{budget}/{degree}/{size},Student wants their top university matches based on survey preferences,N/A,N/A,N/A
+/modelrec/predict/all/{budget}/{degree}/{size},Student wants the full ranked list of university matches,N/A,N/A,N/A
+/budget_recommendations/students,Budget manager wants suggested sector budget reallocations based on student majors and labor-market demand,N/A,N/A,N/A
+/labor/observations,Labor statistician wants the full set of labor-market observations,N/A,N/A,N/A
+/labor/predict/level/{emp_lag1},Labor statistician wants a predicted employment level,N/A,N/A,N/A
+/labor/predict/change/{graduates}/{emp_lag1}/{time},Labor statistician wants a predicted employment change,N/A,N/A,N/A
+/,Template welcome / health-check route,N/A,N/A,N/A
+/playlist,Template demo route returning sample data,N/A,N/A,N/A
+/niceMessage,Template demo route,N/A,N/A,N/A
+/message,Template demo route (redirects to /niceMessage),N/A,N/A,N/A
+/data,Template demo / health-check route,N/A,N/A,N/A

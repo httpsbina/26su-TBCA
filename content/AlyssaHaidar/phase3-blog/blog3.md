@@ -3,7 +3,7 @@ title: "Blog Post #3"
 date: 2026-05-17
 draft: false
 description: "Individual Deliverables"
-slug: "blog2"   # if you use, needs to be different for every post
+slug: "blog3"
 tags: ["authors", "config", "docs"]
 authors:
   - "alyssa_haidar"
